@@ -10,7 +10,7 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
           <div class="lg:col-span-4">
             <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
-              Experience
+              Work Experience
             </h2>
             <div
               class="w-[75px] h-[5px] mt-2 rounded-full"
@@ -51,6 +51,22 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
                         {exp.dateRange}
                       </span>
                     </div>
+
+                    {exp.links && exp.links.length > 0 && (
+                      <div class="flex flex-wrap gap-2 mb-4">
+                        {exp.links.map((link) => (
+                          <a
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs sm:text-sm font-medium border border-gray-200 text-gray-800 hover:border-gray-300 hover:bg-gray-50 transition-colors duration-200"
+                          >
+                            <span class="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: siteConfig.accentColor }} />
+                            {link.label}
+                          </a>
+                        ))}
+                      </div>
+                    )}
 
                     <ul class="space-y-2">
                       {exp.bullets.map((bullet) => (

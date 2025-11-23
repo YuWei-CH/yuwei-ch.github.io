@@ -1,0 +1,35 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Memberships from "../components/Memberships.astro";
+import { siteConfig } from "../config";
+import "../styles/global.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={`${siteConfig.name} - Involvement`} />
+    <title>{siteConfig.name} - Involvement</title>
+  </head>
+  <body>
+    <Header />
+    <main class="pt-16">
+      <section class="p-8 sm:p-12 md:p-16 lg:p-24">
+        <div class="max-w-4xl mx-auto space-y-6">
+          <p class="text-sm font-semibold uppercase tracking-wide text-gray-500">
+            More About Me
+          </p>
+          <h1 class="text-4xl sm:text-5xl font-bold text-gray-900">Involvement</h1>
+          <p class="text-lg sm:text-xl text-gray-600 leading-relaxed">
+            Clubs, memberships, and volunteer work that shape my community and technical practice.
+          </p>
+        </div>
+      </section>
+      <Memberships />
+    </main>
+    <Footer />
+  </body>
+</html>

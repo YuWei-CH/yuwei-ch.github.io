@@ -1,0 +1,40 @@
+---
+import { siteConfig } from "../config";
+const hasNews = siteConfig.news && siteConfig.news.length > 0;
+---
+
+{
+  hasNews && (
+    <section id="news" class="p-8 sm:p-12 md:p-16 lg:p-24 bg-gray-50">
+      <div class="max-w-5xl mx-auto space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
+              News
+            </h2>
+            <div
+              class="w-[75px] h-[5px] mt-2 rounded-full"
+              style={`background-color: ${siteConfig.accentColor}`}
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+          {siteConfig.news.map((item) => (
+            <div class="p-4 sm:p-5 bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200">
+              <p class="text-xs sm:text-sm font-semibold uppercase tracking-wide text-gray-500">
+                {item.date}
+              </p>
+              <h3 class="mt-2 text-lg sm:text-xl font-semibold text-gray-900">
+                {item.title}
+              </h3>
+              <p class="mt-2 text-sm sm:text-base text-gray-600 leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
