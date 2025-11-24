@@ -1,0 +1,41 @@
+export const baseConfig = {
+  name: "Yuwei (Peter) Sun",
+  title: "MCS @ UIUC · High-Performance Computing Engineer",
+  description:
+    "Showcasing Yuwei Sun's research in high-performance computing, personal projects, and professional experience.",
+  accentColor: "#E84A27",
+  social: {
+    email: "yuweis2@illinois.edu",
+    linkedin: "https://linkedin.com/in/yuwei-sun-1136b0217",
+    twitter: "",
+    github: "https://github.com/YuWei-CH",
+  },
+  aboutMe:
+    "I build high-performance AI systems by applying HPC principles to model inference and infrastructure. My goal is to make large-scale AI run faster, cheaper, and smarter.",
+  keywords: [
+    "High Performance Computing (HPC)",
+    "AI Infrastructure",
+    "Cloud Computing",
+    "Kernel Engineering",
+  ],
+  skills: [
+    "Python",
+    "C/C++",
+    "CUDA",
+    "Flask",
+    "Redis",
+    "MySQL",
+    "Docker",
+    "SLURM",
+    "Singularity",
+    "CMake",
+    "Git/GitHub",
+    "Linux",
+    "OpenMP",
+    "MPI",
+    "GCP",
+    "CI/CD",
+    "Raspberry Pi",
+    "cProfile",
+  ],
+};
