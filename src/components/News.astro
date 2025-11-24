@@ -1,6 +1,17 @@
 ---
 import { siteConfig } from "../config";
+
 const hasNews = siteConfig.news && siteConfig.news.length > 0;
+const newsItems =
+  hasNews && siteConfig.news.length < 3
+    ? Array.from({ length: 3 }, (_, i) => siteConfig.news[i % siteConfig.news.length])
+    : siteConfig.news;
+
+const highlightHTML = (text: string) =>
+  text.replace(
+    /\*([^*]+)\*/g,
+    `<span class="font-semibold" style="color:${siteConfig.accentColor}">$1</span>`
+  );
 ---
 
 {
@@ -19,20 +30,33 @@ const hasNews = siteConfig.news && siteConfig.news.length > 0;
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-          {siteConfig.news.map((item) => (
-            <div class="p-4 sm:p-5 bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200">
-              <p class="text-xs sm:text-sm font-semibold uppercase tracking-wide text-gray-500">
-                {item.date}
-              </p>
-              <h3 class="mt-2 text-lg sm:text-xl font-semibold text-gray-900">
-                {item.title}
-              </h3>
-              <p class="mt-2 text-sm sm:text-base text-gray-600 leading-relaxed">
-                {item.description}
-              </p>
-            </div>
-          ))}
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <p class="text-sm text-gray-600">These updates mark key milestones along my journey.</p>
+          <p class="text-sm text-gray-500">Swipe or scroll horizontally</p>
+        </div>
+
+        <div class="relative">
+          <div class="flex gap-4 sm:gap-5 overflow-x-auto snap-x snap-mandatory pb-4 sm:pb-6 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+            {newsItems.map((item) => (
+              <div class="flex-none basis-1/3 snap-start">
+                <div class="p-4 sm:p-5 h-full">
+                  <p
+                    class="text-xs sm:text-sm font-semibold uppercase tracking-wide"
+                    style={{ color: siteConfig.accentColor }}
+                  >
+                    {item.date}
+                  </p>
+                  <h3 class="mt-2 text-lg sm:text-xl font-semibold text-gray-900">
+                    {item.title}
+                  </h3>
+                  <p
+                    class="mt-2 text-sm sm:text-base text-gray-600 leading-relaxed"
+                    set:html={highlightHTML(item.description)}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

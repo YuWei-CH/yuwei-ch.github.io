@@ -10,7 +10,7 @@ export const education = [
     school: "New York University",
     degree: "B.S in CS, Minor in Math",
     dateRange: "Sep 2021 - May 2025",
-    achievements: ["Part-time member of the NYU High-Performance Computing Team."],
+    achievements: ["HPC Assistant of the NYU High-Performance Computing Team."],
     honors: [
       "University Honors",
       "Tandon Dean's List",

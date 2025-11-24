@@ -2,7 +2,7 @@ export const hobbies = [
   {
     name: "Photography",
     description:
-      "Capturing architecture and urban stories with a focus on light, symmetry, and motion. I enjoy long-exposure night shots and documenting travel through photo essays.",
+      "I like photos, will updated later",
     highlights: [
       "Architecture and street photography",
       "Long-exposure and low-light work",
@@ -12,11 +12,9 @@ export const hobbies = [
   {
     name: "Poetry",
     description:
-      "Writing short poems about cities, transit, and people—often pairing words with photos to explore place and memory.",
+      "Learn how to write poem from Prof. Felsenthal. Will updated latter",
     highlights: [
-      "Themes: city life, motion, and memory",
-      "Pairing poems with photography",
-      "Occasional readings with friends",
+      "Themes: city life, animals, and memory",
     ],
   },
 ];

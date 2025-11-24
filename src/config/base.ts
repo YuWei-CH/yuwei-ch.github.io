@@ -11,7 +11,7 @@ export const baseConfig = {
     github: "https://github.com/YuWei-CH",
   },
   aboutMe:
-    "I build high-performance AI systems by applying HPC principles to model inference and infrastructure. My goal is to make large-scale AI run faster, cheaper, and smarter.",
+    "I build high-performance computation systems by applying HPC principles to model inference and infrastructure. My goal is to make large-scale AI and HPC applicationstion faster, cheaper, and smarter.",
   keywords: [
     "High Performance Computing (HPC)",
     "AI Infrastructure",

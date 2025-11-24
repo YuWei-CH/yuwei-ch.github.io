@@ -18,7 +18,7 @@ export const memberships = [
     role: "High-Performance Computing Apprenticeship",
     dateRange: "Aug 2025",
     description:
-      "https://www.credly.com/badges/0e44526f-a860-451c-9c86-93fba75c8b9f/public_url",
+      "",
   },
   {
     org: "Student Cluster Competition (SC23)",
@@ -36,7 +36,7 @@ export const memberships = [
   },
   {
     org: "HiTech Club",
-    role: "Teaching volunteer at Junior high school",
+    role: "Club President",
     dateRange: "May 2020 - May 2021",
     description:
       "Taught JAVA & SWIFT based programming and mentored members on APCSA courses.",

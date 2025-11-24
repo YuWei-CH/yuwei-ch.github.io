@@ -7,13 +7,6 @@ export const projects = [
     link: "https://github.com/YuWei-CH/Travel-Planner",
   },
   {
-    name: "Google Hardware Product Sprint (EE Track)",
-    description:
-      "Designed, tested, and fabricated a PCB-based clock using KiCAD and microcontrollers, delivering a hardware prototype through the Google Hardware Product Sprint program.",
-    link: "https://github.com/YuWei-CH/RedSun_Clock",
-    skills: ["KiCAD", "Embedded C", "PCB Design"],
-  },
-  {
     name: "Byte-Pi-Cluster",
     description:
       "Built a five-node Raspberry Pi cluster with Kubernetes, MPI, and NFS for shared storage, enabling secure public network access via FRP for remote experiments.",
@@ -33,5 +26,12 @@ export const projects = [
       "Developed a Python E20 assembler and C++ CPU and cache simulators to model instruction execution and memory behavior.",
     link: "",
     skills: ["C++", "Computer Architecture", "Python", "CPU", "Assembly Language"],
+  },
+  {
+    name: "Google Hardware Product Sprint (EE Track)",
+    description:
+      "Designed, tested, and fabricated a PCB-based clock using KiCAD and microcontrollers, delivering a hardware prototype through the Google Hardware Product Sprint program.",
+    link: "https://github.com/YuWei-CH/RedSun_Clock",
+    skills: ["KiCAD", "Embedded C", "PCB Design"],
   },
 ];

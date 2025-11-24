@@ -61,7 +61,19 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
                             rel="noopener noreferrer"
                             class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs sm:text-sm font-medium border border-gray-200 text-gray-800 hover:border-gray-300 hover:bg-gray-50 transition-colors duration-200"
                           >
-                            <span class="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: siteConfig.accentColor }} />
+                            <svg
+                              class="w-3.5 h-3.5 text-gray-500"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M10 14L21 3m0 0h-7m7 0v7M13 10L3 20m0 0h7m-7 0v-7"
+                              />
+                            </svg>
                             {link.label}
                           </a>
                         ))}

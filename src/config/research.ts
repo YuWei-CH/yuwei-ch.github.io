@@ -1,5 +1,5 @@
 export const researchIntro =
-  "I investigate GPU performance for scientific computing and wafer-scale architectures, collaborating with the Flatiron Institute on GPU-accelerated periodograms and with the Scalable Architecture Lab on memory systems for large accelerators.";
+  "I research heterogeneous computing for scientific applications and wafer-scale GPU architectures. My work includes collaborating with the Flatiron Institute on parallel optimization of periodograms and with the Scalable Architecture Lab on profiling and memory systems for large accelerators.";
 
 export const research = [
   {
@@ -7,7 +7,7 @@ export const research = [
     title: "HPC Scientific Software",
     dateRange: "Sep 2025",
     focus:
-      "Poster on optimizing and extending Lomb-Scargle periodogram computations for astronomy using GPU acceleration.",
+      "Poster on optimizing and extending Lomb-Scargle periodogram computations for astronomy using OpenMP and CUDA",
     publicationTitle: "Optimizing and Extending Periodogram Computations for Astronomy",
     publicationLink: "https://sc25.conference-program.com/presentation/?id=post133&sess=sess527",
     mentor: "Dr. Lehman Garrison",
