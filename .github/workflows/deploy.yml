@@ -1,0 +1,41 @@
+# reference : https://docs.astro.build/en/guides/deploy/github/
+
+name: Deploy to GitHub Pages
+
+on:
+  # deploy when push to main
+  push:
+    branches: [master]
+  # 可以在 GitHub Actions 页面手动点一次运行
+  workflow_dispatch:
+
+# permission allowed
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v4
+
+      - name: Install, build, and upload your site
+        uses: withastro/action@v5
+        # 默认会自动检测 package-lock.json 用 npm
+        # 如果以后你换成 pnpm/yarn 可以在这里加:
+        # with:
+        #   package-manager: pnpm@latest
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
