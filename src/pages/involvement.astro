@@ -2,31 +2,48 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Memberships from "../components/Memberships.astro";
-import { siteConfig } from "../config";
+import { locales, defaultLocale, localeEntries } from "../config";
+import LanguageToggle from "../components/LanguageToggle.astro";
 import "../styles/global.css";
+
+const meta = Object.fromEntries(
+  Object.entries(locales).map(([lang, config]) => [
+    lang,
+    {
+      title: `${config.name} - ${config.ui.memberships.pageTitle}`,
+      description: config.ui.memberships.pageIntro,
+    },
+  ])
+);
+const defaultConfig = locales[defaultLocale];
 ---
 
-<html lang="en">
+<html lang={defaultLocale}>
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="description" content={`${siteConfig.name} - Involvement`} />
-    <title>{siteConfig.name} - Involvement</title>
+    <meta name="description" content={meta[defaultLocale].description} />
+    <title>{meta[defaultLocale].title}</title>
   </head>
-  <body>
+  <body data-lang={defaultLocale}>
+    <LanguageToggle meta={meta} />
     <Header />
     <main class="pt-16">
       <section class="p-8 sm:p-12 md:p-16 lg:p-24">
-        <div class="max-w-4xl mx-auto space-y-6">
-          <p class="text-sm font-semibold uppercase tracking-wide text-gray-500">
-            More About Me
-          </p>
-          <h1 class="text-4xl sm:text-5xl font-bold text-gray-900">Involvement</h1>
-          <p class="text-lg sm:text-xl text-gray-600 leading-relaxed">
-            Clubs, memberships, and volunteer work that shape my community and technical practice.
-          </p>
-        </div>
+        {localeEntries.map(([lang, siteConfig]) => (
+          <div class={`lang-block lang-${lang} max-w-4xl mx-auto space-y-6`}>
+            <p class="text-sm font-semibold uppercase tracking-wide text-gray-500">
+              {siteConfig.ui.common.moreAbout}
+            </p>
+            <h1 class="text-4xl sm:text-5xl font-bold text-gray-900">
+              {siteConfig.ui.memberships.pageTitle}
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-600 leading-relaxed">
+              {siteConfig.ui.memberships.pageIntro}
+            </p>
+          </div>
+        ))}
       </section>
       <Memberships />
     </main>

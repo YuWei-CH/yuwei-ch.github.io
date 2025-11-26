@@ -44,7 +44,7 @@ export const experience = [
     bullets: [
       "Translated CUDA codebases to HIP with HIPify, enabling AMD GPU support for AlphaFold and DualPhysics on ROCm.",
       "Contributed fixes to HIPify for Math_constant.h issues to improve CUDA-to-HIP translation reliability.",
-      "Evaluated ARM CPU suitability on AWS Graviton and GCP Axion by compiling HPL, Amber24, and Gaussian and benchmarking price-performance.",
+      "Evaluated cloud based ARM CPU suitability on AWS Graviton and GCP Axion by compiling HPL, Amber24, and Gaussian and benchmarking price-performance.",
     ],
   },
 ];

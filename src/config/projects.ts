@@ -9,7 +9,7 @@ export const projects = [
   {
     name: "Byte-Pi-Cluster",
     description:
-      "Built a five-node Raspberry Pi cluster with Kubernetes, MPI, and NFS for shared storage, enabling secure public network access via FRP for remote experiments.",
+      "Built a six-node Raspberry Pi cluster with Kubernetes, MPI, and NFS for shared storage, enabling secure public network access via FRP for remote experiments.",
     link: "https://github.com/YuWei-CH/Byte-Pi-Cluster",
     skills: ["Kubernetes", "MPI", "Raspberry Pi", "NFS", "FRP"],
   },

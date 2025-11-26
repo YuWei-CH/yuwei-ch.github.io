@@ -1,13 +1,5 @@
 ---
-import { siteConfig } from "../config";
-
-const hasNews = siteConfig.news && siteConfig.news.length > 0;
-const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
-const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
-const hasResearch = siteConfig.research && siteConfig.research.length > 0;
-const hasEducation = siteConfig.education && siteConfig.education.length > 0;
-const hasMemberships = siteConfig.memberships && siteConfig.memberships.length > 0;
-const hasMore = hasMemberships || (siteConfig.hobbies && siteConfig.hobbies.length > 0);
+import { localeEntries } from "../config";
 ---
 
 <header
@@ -15,106 +7,118 @@ const hasMore = hasMemberships || (siteConfig.hobbies && siteConfig.hobbies.leng
   class="fixed top-0 left-0 right-0 z-50 hidden md:block transition-all duration-300"
 >
   <nav class="max-w-7xl mx-auto px-8 py-4">
-    <ul class="flex items-center gap-8 justify-center">
-      {hasNews && (
-        <li>
-          <a
-            href="/#news"
-            class="text-gray-700 hover:text-black transition-colors font-medium"
-          >
-            News
-          </a>
-        </li>
-      )}
-      <li>
-        <a
-          href="/#about"
-          class="text-gray-700 hover:text-black transition-colors font-medium"
-        >
-          About
-        </a>
-      </li>
-      {
-        hasExperience && (
-          <li>
-            <a
-              href="/#experience"
-              class="text-gray-700 hover:text-black transition-colors font-medium"
-            >
-              Work Experience
-            </a>
-          </li>
-        )
-      }
-      {
-        hasEducation && (
-          <li>
-            <a
-              href="/#education"
-              class="text-gray-700 hover:text-black transition-colors font-medium"
-            >
-              Education
-            </a>
-          </li>
-        )
-      }
-      {
-        hasProjects && (
-          <li>
-            <a
-              href="/#projects"
-              class="text-gray-700 hover:text-black transition-colors font-medium"
-            >
-              Projects
-            </a>
-          </li>
-        )
-      }
-      {
-        hasResearch && (
-          <li>
-            <a
-              href="/#research"
-              class="text-gray-700 hover:text-black transition-colors font-medium"
-            >
-              Research
-            </a>
-          </li>
-        )
-      }
-      {hasMore && (
-        <li class="relative group">
-          <button
-            class="flex items-center gap-1 text-gray-700 hover:text-black transition-colors font-medium focus:outline-none"
-          >
-            More About Me
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <div
-            class="absolute left-1/2 -translate-x-1/2 mt-3 hidden group-hover:block group-focus-within:block bg-white border border-gray-200 rounded-lg shadow-lg min-w-[180px] py-2 z-50"
-          >
-            {hasMemberships && (
+    {localeEntries.map(([lang, siteConfig]) => {
+      const hasNews = siteConfig.news && siteConfig.news.length > 0;
+      const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
+      const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
+      const hasResearch = siteConfig.research && siteConfig.research.length > 0;
+      const hasEducation = siteConfig.education && siteConfig.education.length > 0;
+      const hasMemberships = siteConfig.memberships && siteConfig.memberships.length > 0;
+      const hasMore = hasMemberships || (siteConfig.hobbies && siteConfig.hobbies.length > 0);
+
+      return (
+        <ul class={`lang-block lang-${lang} flex items-center gap-8 justify-center`}>
+          {hasNews && (
+            <li>
               <a
-                href="/involvement"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                href="/#news"
+                class="text-gray-700 hover:text-black transition-colors font-medium"
               >
-                Involvement
+                {siteConfig.ui.nav.news}
               </a>
-            )}
-            {siteConfig.hobbies && siteConfig.hobbies.length > 0 && (
-              <a
-                href="/hobbies"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+            </li>
+          )}
+          <li>
+            <a
+              href="/#about"
+              class="text-gray-700 hover:text-black transition-colors font-medium"
+            >
+              {siteConfig.ui.nav.about}
+            </a>
+          </li>
+          {
+            hasExperience && (
+              <li>
+                <a
+                  href="/#experience"
+                  class="text-gray-700 hover:text-black transition-colors font-medium"
+                >
+                  {siteConfig.ui.nav.experience}
+                </a>
+              </li>
+            )
+          }
+          {
+            hasEducation && (
+              <li>
+                <a
+                  href="/#education"
+                  class="text-gray-700 hover:text-black transition-colors font-medium"
+                >
+                  {siteConfig.ui.nav.education}
+                </a>
+              </li>
+            )
+          }
+          {
+            hasProjects && (
+              <li>
+                <a
+                  href="/#projects"
+                  class="text-gray-700 hover:text-black transition-colors font-medium"
+                >
+                  {siteConfig.ui.nav.projects}
+                </a>
+              </li>
+            )
+          }
+          {
+            hasResearch && (
+              <li>
+                <a
+                  href="/#research"
+                  class="text-gray-700 hover:text-black transition-colors font-medium"
+                >
+                  {siteConfig.ui.nav.research}
+                </a>
+              </li>
+            )
+          }
+          {hasMore && (
+            <li class="relative group">
+              <button
+                class="flex items-center gap-1 text-gray-700 hover:text-black transition-colors font-medium focus:outline-none"
               >
-                Creative Interests
-              </a>
-            )}
-          </div>
-        </li>
-      )}
-    </ul>
+                {siteConfig.ui.nav.more}
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div
+                class="absolute left-1/2 -translate-x-1/2 mt-3 hidden group-hover:block group-focus-within:block bg-white border border-gray-200 rounded-lg shadow-lg min-w-[180px] py-2 z-50"
+              >
+                {hasMemberships && (
+                  <a
+                    href="/involvement"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                  >
+                    {siteConfig.ui.nav.involvement}
+                  </a>
+                )}
+                {siteConfig.hobbies && siteConfig.hobbies.length > 0 && (
+                  <a
+                    href="/hobbies"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                  >
+                    {siteConfig.ui.nav.hobbies}
+                  </a>
+                )}
+              </div>
+            </li>
+          )}
+        </ul>
+      );
+    })}
   </nav>
 </header>
 

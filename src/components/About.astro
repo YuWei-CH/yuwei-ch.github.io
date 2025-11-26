@@ -1,58 +1,62 @@
 ---
-import { siteConfig } from "../config";
+import { localeEntries } from "../config";
+
+const accentColor = localeEntries[0][1].accentColor;
 ---
 
 <section id="about" class="p-8 sm:p-12 md:p-16 lg:p-24">
-  <div>
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-      <div class="lg:col-span-4">
-        <h2
-          class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900"
-        >
-          About Me
-        </h2>
-        <div
-          class="w-[75px] h-[5px] mt-2 rounded-full"
-          style={`background-color: ${siteConfig.accentColor}`}
-        >
-        </div>
-      </div>
-
-      <div class="lg:col-span-8 space-y-8">
-        <p class="text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-600">
-          {siteConfig.aboutMe}
-        </p>
-
-        {siteConfig.keywords && siteConfig.keywords.length > 0 && (
-          <div class="space-y-3">
-            <p class="text-sm sm:text-base uppercase tracking-wide font-semibold text-gray-500">
-              Keywords
-            </p>
-            <div class="flex flex-wrap gap-2 sm:gap-3">
-              {siteConfig.keywords.map((word) => (
-                <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-900 text-white rounded-full text-sm sm:text-base font-medium">
-                  {word}
-                </span>
-              ))}
-            </div>
+  {localeEntries.map(([lang, siteConfig]) => (
+    <div class={`lang-block lang-${lang}`}>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+        <div class="lg:col-span-4">
+          <h2
+            class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900"
+          >
+            {siteConfig.ui.about.title}
+          </h2>
+          <div
+            class="w-[75px] h-[5px] mt-2 rounded-full"
+            style={`background-color: ${accentColor}`}
+          >
           </div>
-        )}
+        </div>
 
-        <div class="pt-4">
-          <p class="text-sm sm:text-base uppercase tracking-wide font-semibold text-gray-500 mb-2">
-            Skills
+        <div class="lg:col-span-8 space-y-8">
+          <p class="text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-600">
+            {siteConfig.aboutMe}
           </p>
-          <div class="flex flex-wrap gap-3">
-            {
-              siteConfig.skills.map((skill) => (
-                <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-100 text-gray-800 rounded-full text-sm sm:text-base md:text-lg font-medium hover:bg-gray-200 transition-colors duration-200">
-                  {skill}
-                </span>
-              ))
-            }
+
+          {siteConfig.keywords && siteConfig.keywords.length > 0 && (
+            <div class="space-y-3">
+              <p class="text-sm sm:text-base uppercase tracking-wide font-semibold text-gray-500">
+                {siteConfig.ui.about.keywords}
+              </p>
+              <div class="flex flex-wrap gap-2 sm:gap-3">
+                {siteConfig.keywords.map((word) => (
+                  <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-900 text-white rounded-full text-sm sm:text-base font-medium">
+                    {word}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div class="pt-4">
+            <p class="text-sm sm:text-base uppercase tracking-wide font-semibold text-gray-500 mb-2">
+              {siteConfig.ui.about.skills}
+            </p>
+            <div class="flex flex-wrap gap-3">
+              {
+                siteConfig.skills.map((skill) => (
+                  <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-100 text-gray-800 rounded-full text-sm sm:text-base md:text-lg font-medium hover:bg-gray-200 transition-colors duration-200">
+                    {skill}
+                  </span>
+                ))
+              }
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  ))}
 </section>

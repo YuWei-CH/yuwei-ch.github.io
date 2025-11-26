@@ -1,20 +1,8 @@
-import { baseConfig } from "./config/base";
-import { experience } from "./config/experience";
-import { researchIntro, research } from "./config/research";
-import { news } from "./config/news";
-import { projects } from "./config/projects";
-import { education } from "./config/education";
-import { memberships } from "./config/memberships";
-import { hobbies } from "./config/hobbies";
+import { en } from "./config/locales/en";
+import { zh } from "./config/locales/zh";
 
-export const siteConfig = {
-  ...baseConfig,
-  experience,
-  researchIntro,
-  research,
-  news,
-  projects,
-  education,
-  memberships,
-  hobbies,
-};
+export const locales = { en, zh } as const;
+export type LocaleKey = keyof typeof locales;
+export type SiteConfig = (typeof locales)[LocaleKey];
+export const localeEntries = Object.entries(locales) as [LocaleKey, SiteConfig][];
+export const defaultLocale: LocaleKey = "en";

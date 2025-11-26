@@ -1,0 +1,135 @@
+---
+import { defaultLocale } from "../config";
+
+interface Props {
+  meta: Record<string, { title: string; description?: string }>;
+  variant?: "fixed" | "inline";
+}
+
+const { meta, variant = "fixed" } = Astro.props;
+const wrapperClass =
+  variant === "fixed"
+    ? "fixed top-4 right-4 md:top-6 md:right-10 z-[60]"
+    : "";
+---
+
+<div class={`language-toggle-wrapper ${wrapperClass}`}>
+  <button class="language-toggle" type="button" data-lang-toggle data-active={defaultLocale}>
+    <span class="language-option">EN</span>
+    <span class="language-option">中文</span>
+    <span class="language-knob"></span>
+  </button>
+</div>
+
+<script type="application/json" id="locale-meta">
+  {JSON.stringify(meta)}
+</script>
+
+<script is:inline>
+  (() => {
+    if (window.__langToggleInitialized) return;
+    window.__langToggleInitialized = true;
+    const metaEl = document.getElementById("locale-meta");
+    let meta = {};
+
+    try {
+      meta = metaEl ? JSON.parse(metaEl.textContent || "{}") : {};
+    } catch (error) {
+      meta = {};
+    }
+
+    const supported = Object.keys(meta).length > 0 ? Object.keys(meta) : ["en", "zh"];
+    const fallback = supported[0] || "en";
+    const root = document.documentElement;
+    const body = document.body;
+
+    const setButtonState = (lang) => {
+      document.querySelectorAll("[data-lang-toggle]").forEach((btn) => {
+        btn.setAttribute("data-active", lang);
+      });
+    };
+
+    const applyLang = (lang) => {
+      const next = supported.includes(lang) ? lang : fallback;
+      body.dataset.lang = next;
+      root.dataset.lang = next;
+      root.lang = next;
+      localStorage.setItem("preferred-lang", next);
+
+      const metaEntry = meta[next];
+      if (metaEntry?.title) {
+        document.title = metaEntry.title;
+      }
+      if (metaEntry?.description) {
+        const desc = document.querySelector('meta[name="description"]');
+        if (desc) desc.setAttribute("content", metaEntry.description);
+      }
+
+      setButtonState(next);
+    };
+
+    const saved = localStorage.getItem("preferred-lang");
+    applyLang(saved || body.dataset.lang || fallback);
+
+    document.querySelectorAll("[data-lang-toggle]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const next = btn.getAttribute("data-active") === "en" ? "zh" : "en";
+        applyLang(next);
+      });
+    });
+  })();
+</script>
+
+<style>
+  .language-toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #e5e7eb;
+    border-radius: 9999px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    font-weight: 600;
+    color: #111827;
+    transition: box-shadow 150ms ease, border-color 150ms ease;
+    overflow: hidden;
+  }
+
+  .language-toggle:hover {
+    border-color: #d1d5db;
+    box-shadow: 0 14px 38px rgba(0, 0, 0, 0.1);
+  }
+
+  .language-option {
+    position: relative;
+    z-index: 2;
+    font-size: 0.875rem;
+    letter-spacing: 0.01em;
+    transition: color 200ms ease;
+  }
+
+  .language-knob {
+    position: absolute;
+    inset: 4px;
+    width: calc(50% - 6px);
+    background: #111827;
+    border-radius: 9999px;
+    z-index: 1;
+    transition: transform 200ms ease, background 200ms ease;
+  }
+
+  [data-active="zh"] .language-knob {
+    transform: translateX(100%);
+  }
+
+  [data-active="en"] .language-option:first-of-type,
+  [data-active="zh"] .language-option:nth-of-type(2) {
+    color: #ffffff !important;
+  }
+
+  .language-toggle-wrapper {
+    backdrop-filter: blur(10px);
+  }
+</style>

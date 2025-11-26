@@ -1,98 +1,104 @@
 ---
-import { siteConfig } from "../config";
-const hasResearch = siteConfig.research && siteConfig.research.length > 0;
+import { localeEntries } from "../config";
+
+const accentColor = localeEntries[0][1].accentColor;
+const hasResearch = localeEntries.some(
+  ([, siteConfig]) => siteConfig.research && siteConfig.research.length > 0
+);
 ---
 
 {
   hasResearch && (
     <section id="research" class="p-8 sm:p-12 md:p-16 lg:p-24">
-      <div>
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-          <div class="lg:col-span-4">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
-              Research
-            </h2>
-            <div
-              class="w-[75px] h-[5px] mt-2 rounded-full"
-              style={`background-color: ${siteConfig.accentColor}`}
-            />
-          </div>
+      {localeEntries.map(([lang, siteConfig]) => (
+        <div class={`lang-block lang-${lang}`}>
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+            <div class="lg:col-span-4">
+              <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
+                {siteConfig.ui.research.title}
+              </h2>
+              <div
+                class="w-[75px] h-[5px] mt-2 rounded-full"
+                style={`background-color: ${accentColor}`}
+              />
+            </div>
 
-          <div class="lg:col-span-8 space-y-8">
-            {siteConfig.researchIntro && (
-              <p class="text-lg sm:text-xl text-gray-700 leading-relaxed">
-                {siteConfig.researchIntro}
-              </p>
-            )}
+            <div class="lg:col-span-8 space-y-8">
+              {siteConfig.researchIntro && (
+                <p class="text-lg sm:text-xl text-gray-700 leading-relaxed">
+                  {siteConfig.researchIntro}
+                </p>
+              )}
 
-            {siteConfig.research.map((item, index) => (
-              <div class="relative bg-white rounded-xl border border-gray-200 p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow duration-200">
-                <div class="flex items-start justify-between gap-4">
-                  <div class="space-y-1.5">
-                    <p class="text-sm font-mono" style={{ color: siteConfig.accentColor }}>
-                      R0{index + 1}
-                    </p>
-                    <h3 class="text-xl sm:text-2xl font-semibold text-gray-900">
-                      {item.title}
-                    </h3>
-                    <p class="text-base sm:text-lg text-gray-700">{item.org}</p>
-                    <p class="text-sm text-gray-500">{item.dateRange}</p>
+              {siteConfig.research.map((item, index) => (
+                <div class="relative bg-white rounded-xl border border-gray-200 p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow duration-200">
+                  <div class="flex items-start justify-between gap-4">
+                    <div class="space-y-1.5">
+                      <p class="text-sm font-mono" style={{ color: accentColor }}>
+                        R0{index + 1}
+                      </p>
+                      <h3 class="text-xl sm:text-2xl font-semibold text-gray-900">
+                        {item.title}
+                      </h3>
+                      <p class="text-base sm:text-lg text-gray-700">{item.org}</p>
+                      <p class="text-sm text-gray-500">{item.dateRange}</p>
+                    </div>
+                    {item.link && (
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-sm font-semibold"
+                        style={{ color: accentColor }}
+                      >
+                        {siteConfig.ui.research.viewWork}
+                      </a>
+                    )}
                   </div>
-                  {item.link && (
-                    <a
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-sm font-semibold"
-                      style={{ color: siteConfig.accentColor }}
-                    >
-                      View work →
-                    </a>
+
+                  <p class="text-base sm:text-lg text-gray-600 mt-4 leading-relaxed">
+                    {item.focus}
+                  </p>
+
+                  {item.mentor && (
+                    <p class="text-sm sm:text-base text-gray-700 mt-2">
+                      {siteConfig.ui.research.mentor}: <span class="font-semibold">{item.mentor}</span>
+                    </p>
+                  )}
+
+                  {item.publicationTitle && item.publicationLink && (
+                    <p class="text-sm sm:text-base text-gray-700 mt-2">
+                      {siteConfig.ui.research.publication}:{" "}
+                      <a
+                        href={item.publicationLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="font-semibold underline decoration-2 underline-offset-4"
+                        style={{ color: accentColor }}
+                      >
+                        {item.publicationTitle}
+                      </a>
+                    </p>
+                  )}
+
+                  {item.bullets && item.bullets.length > 0 && (
+                    <ul class="mt-4 space-y-2">
+                      {item.bullets.map((bullet) => (
+                        <li class="flex items-start">
+                          <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 mr-3 flex-shrink-0" />
+                          <span class="text-sm sm:text-base text-gray-600">
+                            {bullet}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
                   )}
                 </div>
-
-                <p class="text-base sm:text-lg text-gray-600 mt-4 leading-relaxed">
-                  {item.focus}
-                </p>
-
-                {item.mentor && (
-                  <p class="text-sm sm:text-base text-gray-700 mt-2">
-                    Mentor: <span class="font-semibold">{item.mentor}</span>
-                  </p>
-                )}
-
-                {item.publicationTitle && item.publicationLink && (
-                  <p class="text-sm sm:text-base text-gray-700 mt-2">
-                    Publication:{" "}
-                    <a
-                      href={item.publicationLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="font-semibold underline decoration-2 underline-offset-4"
-                      style={{ color: siteConfig.accentColor }}
-                    >
-                      {item.publicationTitle}
-                    </a>
-                  </p>
-                )}
-
-                {item.bullets && item.bullets.length > 0 && (
-                  <ul class="mt-4 space-y-2">
-                    {item.bullets.map((bullet) => (
-                      <li class="flex items-start">
-                        <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 mr-3 flex-shrink-0" />
-                        <span class="text-sm sm:text-base text-gray-600">
-                          {bullet}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      ))}
     </section>
   )
 }

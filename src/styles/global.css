@@ -3,3 +3,13 @@
 body {
   font-family: 'IBM Plex Mono', monospace;
 }
+
+html[data-lang="en"] .lang-zh,
+body[data-lang="en"] .lang-zh {
+  display: none !important;
+}
+
+html[data-lang="zh"] .lang-en,
+body[data-lang="zh"] .lang-en {
+  display: none !important;
+}
