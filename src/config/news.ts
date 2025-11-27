@@ -57,7 +57,7 @@ export const news = [
     title: "Participated in Google HPS 2022",
     date: "Apr 2022",
     description:
-      "Participated in the Google Hardware Product Sprint 2022, developing a PCB-based clock as part of the hardware track.",
+      "Participated in the Google Hardware Product Sprint 2022, developing a PCB-based clock as part of the EE track.",
   },
   {
     title: "Accepted to NYU Tandon",
