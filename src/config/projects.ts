@@ -14,6 +14,20 @@ export const projects = [
     skills: ["Kubernetes", "MPI", "Raspberry Pi", "NFS", "FRP"],
   },
   {
+    name: "Kernel-Level Optimization for GPT-2 (Sep 2025 - Dec 2025)",
+    description:
+      "Optimized GPT-2 inference kernels on A40 GPUs using Tensor Cores, Split-K, and FlashAttention. Reduced MatMul kernel runtime by 94.6%, improved compute throughput by ~180%, and cut global memory traffic by 85%, guided by Nsight Systems/NCU profiling.",
+    link: "",
+    skills: [
+      "LLM",
+      "Inference",
+      "GPU Kernel Optimization",
+      "CUDA",
+      "FlashAttention",
+      "Performance Profiling",
+    ],
+  },
+  {
     name: "Distributed Order System Refactor",
     description:
       "Participated in the planning and implementation of the 'Buy Now' feature. Enhanced throughput from 1,000 to 50,000 QPS by integrating Redis and RocketMQ within a MySQL primary-replica architecture.",

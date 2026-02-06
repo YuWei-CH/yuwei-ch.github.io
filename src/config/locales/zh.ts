@@ -196,6 +196,20 @@ export const zh = {
       skills: ["Kubernetes", "MPI", "Raspberry Pi", "NFS", "FRP"],
     },
     {
+      name: "GPT-2 内核级优化（2025 年 9 月 - 2025 年 12 月）",
+      description:
+        "在 A40 GPU 上通过 Tensor Cores、Split-K 和 FlashAttention 优化 GPT-2 推理内核。相比 CUDA 基线将 MatMul 内核运行时间降低 94.6%，计算吞吐提升约 180%，全局内存流量降低 85%；优化方向由 Nsight Systems/NCU 性能分析驱动。",
+      link: "",
+      skills: [
+        "LLM",
+        "Inference",
+        "GPU Kernel Optimization",
+        "CUDA",
+        "FlashAttention",
+        "Performance Profiling",
+      ],
+    },
+    {
       name: "分布式订单系统重构",
       description:
         "参与“立即购买”功能的规划与实现；在 MySQL 主从架构中引入 Redis 与 RocketMQ，将吞吐从 1,000 提升到 50,000 QPS。",
