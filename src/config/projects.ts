@@ -1,19 +1,5 @@
 export const projects = [
   {
-    name: "AWS-Sponsored Travel Planner",
-    description:
-      "Led a serverless, auto-scaling travel planner with Lambda, RDS, Cognito, and API Gateway, integrating LLM-based recommendations and OCR-based ticket parsing; built event-driven processing with SQS and cut OpenAI API costs by ~30% using ElastiCache.",
-    skills: ["AWS Lambda", "API Gateway", "Cognito", "RDS", "SQS", "OpenAI API"],
-    link: "https://github.com/YuWei-CH/Travel-Planner",
-  },
-  {
-    name: "Byte-Pi-Cluster",
-    description:
-      "Built a six-node Raspberry Pi cluster with Kubernetes, MPI, and NFS for shared storage, enabling secure public network access via FRP for remote experiments.",
-    link: "https://github.com/YuWei-CH/Byte-Pi-Cluster",
-    skills: ["Kubernetes", "MPI", "Raspberry Pi", "NFS", "FRP"],
-  },
-  {
     name: "Kernel-Level Optimization for GPT-2 (Sep 2025 - Dec 2025)",
     description:
       "Optimized GPT-2 inference kernels on A40 GPUs using Tensor Cores, Split-K, and FlashAttention. Reduced MatMul kernel runtime by 94.6%, improved compute throughput by ~180%, and cut global memory traffic by 85%, guided by Nsight Systems/NCU profiling.",
@@ -26,6 +12,20 @@ export const projects = [
       "FlashAttention",
       "Performance Profiling",
     ],
+  },
+  {
+    name: "AWS-Sponsored Travel Planner",
+    description:
+      "Led a serverless, auto-scaling travel planner with Lambda, RDS, Cognito, and API Gateway, integrating LLM-based recommendations and OCR-based ticket parsing; built event-driven processing with SQS and cut OpenAI API costs by ~30% using ElastiCache.",
+    skills: ["AWS Lambda", "API Gateway", "Cognito", "RDS", "SQS", "OpenAI API"],
+    link: "https://github.com/YuWei-CH/Travel-Planner",
+  },
+  {
+    name: "Byte-Pi-Cluster",
+    description:
+      "Built a six-node Raspberry Pi cluster with Kubernetes, MPI, and NFS for shared storage, enabling secure public network access via FRP for remote experiments.",
+    link: "https://github.com/YuWei-CH/Byte-Pi-Cluster",
+    skills: ["Kubernetes", "MPI", "Raspberry Pi", "NFS", "FRP"],
   },
   {
     name: "Distributed Order System Refactor",

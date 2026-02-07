@@ -182,20 +182,6 @@ export const zh = {
   ],
   projects: [
     {
-      name: "基于云的旅行规划器（AWS 赞助）",
-      description:
-        "负责无服务器（serverless）自适应的旅行规划器，使用 Lambda、RDS、Cognito、API Gateway，结合 LLM 推荐与票据 OCR；基于 SQS 的事件驱动处理，并用 ElastiCache 将 OpenAI API 成本降低约 30%。",
-      skills: ["AWS Lambda", "API Gateway", "Cognito", "RDS", "SQS", "OpenAI API"],
-      link: "https://github.com/YuWei-CH/Travel-Planner",
-    },
-    {
-      name: "Byte-Pi-Cluster",
-      description:
-        "搭建由 6 个 Raspberry Pi 组成的集群，使用 Kubernetes、MPI 和 NFS 共享存储，并通过 FRP 提供安全公网访问，便于远程实验和教学。",
-      link: "https://github.com/YuWei-CH/Byte-Pi-Cluster",
-      skills: ["Kubernetes", "MPI", "Raspberry Pi", "NFS", "FRP"],
-    },
-    {
       name: "GPT-2 内核级优化（2025 年 9 月 - 2025 年 12 月）",
       description:
         "在 A40 GPU 上通过 Tensor Cores、Split-K 和 FlashAttention 优化 GPT-2 推理内核。相比 CUDA 基线将 MatMul 内核运行时间降低 94.6%，计算吞吐提升约 180%，全局内存流量降低 85%；优化方向由 Nsight Systems/NCU 性能分析驱动。",
@@ -208,6 +194,20 @@ export const zh = {
         "FlashAttention",
         "Performance Profiling",
       ],
+    },
+    {
+      name: "基于云的旅行规划器（AWS 赞助）",
+      description:
+        "负责无服务器（serverless）自适应的旅行规划器，使用 Lambda、RDS、Cognito、API Gateway，结合 LLM 推荐与票据 OCR；基于 SQS 的事件驱动处理，并用 ElastiCache 将 OpenAI API 成本降低约 30%。",
+      skills: ["AWS Lambda", "API Gateway", "Cognito", "RDS", "SQS", "OpenAI API"],
+      link: "https://github.com/YuWei-CH/Travel-Planner",
+    },
+    {
+      name: "Byte-Pi-Cluster",
+      description:
+        "搭建由 6 个 Raspberry Pi 组成的集群，使用 Kubernetes、MPI 和 NFS 共享存储，并通过 FRP 提供安全公网访问，便于远程实验和教学。",
+      link: "https://github.com/YuWei-CH/Byte-Pi-Cluster",
+      skills: ["Kubernetes", "MPI", "Raspberry Pi", "NFS", "FRP"],
     },
     {
       name: "分布式订单系统重构",
