@@ -1,5 +1,5 @@
 ---
-import { localeEntries } from "../config";
+import { localeEntries, defaultLocale } from "../config";
 ---
 
 <header
@@ -14,7 +14,8 @@ import { localeEntries } from "../config";
       const hasResearch = siteConfig.research && siteConfig.research.length > 0;
       const hasEducation = siteConfig.education && siteConfig.education.length > 0;
       const hasMemberships = siteConfig.memberships && siteConfig.memberships.length > 0;
-      const hasMore = hasMemberships || (siteConfig.hobbies && siteConfig.hobbies.length > 0);
+      const hasHobbies = siteConfig.hobbies && siteConfig.hobbies.length > 0;
+      const hasMore = hasMemberships || hasHobbies;
 
       return (
         <ul class={`lang-block lang-${lang} flex items-center gap-8 justify-center`}>
@@ -36,54 +37,46 @@ import { localeEntries } from "../config";
               {siteConfig.ui.nav.about}
             </a>
           </li>
-          {
-            hasExperience && (
-              <li>
-                <a
-                  href="/#experience"
-                  class="text-gray-700 hover:text-black transition-colors font-medium"
-                >
-                  {siteConfig.ui.nav.experience}
-                </a>
-              </li>
-            )
-          }
-          {
-            hasEducation && (
-              <li>
-                <a
-                  href="/#education"
-                  class="text-gray-700 hover:text-black transition-colors font-medium"
-                >
-                  {siteConfig.ui.nav.education}
-                </a>
-              </li>
-            )
-          }
-          {
-            hasProjects && (
-              <li>
-                <a
-                  href="/#projects"
-                  class="text-gray-700 hover:text-black transition-colors font-medium"
-                >
-                  {siteConfig.ui.nav.projects}
-                </a>
-              </li>
-            )
-          }
-          {
-            hasResearch && (
-              <li>
-                <a
-                  href="/#research"
-                  class="text-gray-700 hover:text-black transition-colors font-medium"
-                >
-                  {siteConfig.ui.nav.research}
-                </a>
-              </li>
-            )
-          }
+          {hasExperience && (
+            <li>
+              <a
+                href="/#experience"
+                class="text-gray-700 hover:text-black transition-colors font-medium"
+              >
+                {siteConfig.ui.nav.experience}
+              </a>
+            </li>
+          )}
+          {hasProjects && (
+            <li>
+              <a
+                href="/#projects"
+                class="text-gray-700 hover:text-black transition-colors font-medium"
+              >
+                {siteConfig.ui.nav.projects}
+              </a>
+            </li>
+          )}
+          {hasResearch && (
+            <li>
+              <a
+                href="/#research"
+                class="text-gray-700 hover:text-black transition-colors font-medium"
+              >
+                {siteConfig.ui.nav.research}
+              </a>
+            </li>
+          )}
+          {hasEducation && (
+            <li>
+              <a
+                href="/#education"
+                class="text-gray-700 hover:text-black transition-colors font-medium"
+              >
+                {siteConfig.ui.nav.education}
+              </a>
+            </li>
+          )}
           {hasMore && (
             <li class="relative group">
               <button
@@ -105,7 +98,7 @@ import { localeEntries } from "../config";
                     {siteConfig.ui.nav.involvement}
                   </a>
                 )}
-                {siteConfig.hobbies && siteConfig.hobbies.length > 0 && (
+                {hasHobbies && (
                   <a
                     href="/hobbies"
                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
@@ -122,19 +115,250 @@ import { localeEntries } from "../config";
   </nav>
 </header>
 
+<div class="fixed top-0 left-0 right-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur md:hidden">
+  {localeEntries.map(([lang, siteConfig]) => {
+    const hasNews = siteConfig.news && siteConfig.news.length > 0;
+    const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
+    const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
+    const hasResearch = siteConfig.research && siteConfig.research.length > 0;
+    const hasEducation = siteConfig.education && siteConfig.education.length > 0;
+    const hasMemberships = siteConfig.memberships && siteConfig.memberships.length > 0;
+    const hasHobbies = siteConfig.hobbies && siteConfig.hobbies.length > 0;
+
+    return (
+      <div class={`lang-block lang-${lang}`} data-mobile-nav>
+        <div class="flex items-center justify-between gap-3 px-4 py-3">
+          <a href="/#hero" class="min-w-0 truncate text-sm font-semibold tracking-tight text-gray-900">
+            {siteConfig.name}
+          </a>
+
+          <div class="flex items-center gap-2">
+            <button
+              class="mobile-language-toggle"
+              type="button"
+              data-lang-toggle
+              data-active={defaultLocale}
+              aria-label="Toggle language"
+            >
+              <span class="mobile-language-option">EN</span>
+              <span class="mobile-language-option">中文</span>
+              <span class="mobile-language-knob"></span>
+            </button>
+
+            <button
+              type="button"
+              class="mobile-menu-button"
+              data-mobile-menu-toggle
+              data-open-label={siteConfig.ui.nav.openMenu}
+              data-close-label={siteConfig.ui.nav.closeMenu}
+              aria-expanded="false"
+              aria-label={siteConfig.ui.nav.openMenu}
+            >
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="hidden border-t border-gray-200 bg-white" data-mobile-menu>
+          <nav class="px-4 py-3">
+            <ul class="space-y-1">
+              {hasNews && (
+                <li>
+                  <a href="/#news" class="mobile-menu-link" data-mobile-menu-link>{siteConfig.ui.nav.news}</a>
+                </li>
+              )}
+              <li>
+                <a href="/#about" class="mobile-menu-link" data-mobile-menu-link>{siteConfig.ui.nav.about}</a>
+              </li>
+              {hasExperience && (
+                <li>
+                  <a href="/#experience" class="mobile-menu-link" data-mobile-menu-link>
+                    {siteConfig.ui.nav.experience}
+                  </a>
+                </li>
+              )}
+              {hasProjects && (
+                <li>
+                  <a href="/#projects" class="mobile-menu-link" data-mobile-menu-link>
+                    {siteConfig.ui.nav.projects}
+                  </a>
+                </li>
+              )}
+              {hasResearch && (
+                <li>
+                  <a href="/#research" class="mobile-menu-link" data-mobile-menu-link>
+                    {siteConfig.ui.nav.research}
+                  </a>
+                </li>
+              )}
+              {hasEducation && (
+                <li>
+                  <a href="/#education" class="mobile-menu-link" data-mobile-menu-link>
+                    {siteConfig.ui.nav.education}
+                  </a>
+                </li>
+              )}
+              {hasMemberships && (
+                <li>
+                  <a href="/involvement" class="mobile-menu-link" data-mobile-menu-link>
+                    {siteConfig.ui.nav.involvement}
+                  </a>
+                </li>
+              )}
+              {hasHobbies && (
+                <li>
+                  <a href="/hobbies" class="mobile-menu-link" data-mobile-menu-link>
+                    {siteConfig.ui.nav.hobbies}
+                  </a>
+                </li>
+              )}
+            </ul>
+          </nav>
+        </div>
+      </div>
+    );
+  })}
+</div>
+
 <script>
-  window.addEventListener("scroll", () => {
+  const syncHeaderBackground = () => {
     const header = document.getElementById("header");
+    if (!header) return;
+
     if (window.scrollY > 100) {
-      header?.classList.add("bg-white/80", "backdrop-blur-sm");
+      header.classList.add("bg-white/80", "backdrop-blur-sm");
     } else {
-      header?.classList.remove("bg-white/80", "backdrop-blur-sm");
+      header.classList.remove("bg-white/80", "backdrop-blur-sm");
     }
-  });
+  };
+
+  const closeAllMobileMenus = () => {
+    document.querySelectorAll("[data-mobile-nav]").forEach((nav) => {
+      const button = nav.querySelector("[data-mobile-menu-toggle]");
+      const menu = nav.querySelector("[data-mobile-menu]");
+      if (!(button instanceof HTMLButtonElement) || !(menu instanceof HTMLElement)) return;
+
+      button.setAttribute("aria-expanded", "false");
+      button.setAttribute("aria-label", button.dataset.openLabel || "Open menu");
+      menu.classList.add("hidden");
+    });
+  };
+
+  const initMobileMenus = () => {
+    document.querySelectorAll("[data-mobile-nav]").forEach((nav) => {
+      const button = nav.querySelector("[data-mobile-menu-toggle]");
+      const menu = nav.querySelector("[data-mobile-menu]");
+      if (!(button instanceof HTMLButtonElement) || !(menu instanceof HTMLElement)) return;
+
+      const setOpen = (open) => {
+        button.setAttribute("aria-expanded", String(open));
+        button.setAttribute(
+          "aria-label",
+          open ? button.dataset.closeLabel || "Close menu" : button.dataset.openLabel || "Open menu"
+        );
+        menu.classList.toggle("hidden", !open);
+      };
+
+      setOpen(false);
+
+      button.addEventListener("click", () => {
+        setOpen(button.getAttribute("aria-expanded") !== "true");
+      });
+
+      nav.querySelectorAll("[data-mobile-menu-link]").forEach((link) => {
+        link.addEventListener("click", () => {
+          setOpen(false);
+        });
+      });
+    });
+  };
+
+  if (!window.__portfolioHeaderInitialized) {
+    window.__portfolioHeaderInitialized = true;
+    syncHeaderBackground();
+    initMobileMenus();
+    window.addEventListener("scroll", syncHeaderBackground);
+    window.addEventListener("hashchange", closeAllMobileMenus);
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 768) closeAllMobileMenus();
+    });
+  }
 </script>
 
 <style>
   html {
     scroll-behavior: smooth;
+  }
+
+  .mobile-menu-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 9999px;
+    color: #111827;
+    background: #ffffff;
+    transition: border-color 150ms ease, background-color 150ms ease;
+  }
+
+  .mobile-menu-button:hover {
+    border-color: #d1d5db;
+    background: #f9fafb;
+  }
+
+  .mobile-menu-link {
+    display: block;
+    padding: 0.75rem 0.25rem;
+    color: #374151;
+    font-weight: 500;
+    border-bottom: 1px solid #f3f4f6;
+  }
+
+  .mobile-menu-link:hover {
+    color: #111827;
+  }
+
+  .mobile-language-toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.75rem;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 9999px;
+    font-weight: 600;
+    color: #111827;
+    overflow: hidden;
+  }
+
+  .mobile-language-option {
+    position: relative;
+    z-index: 2;
+    font-size: 0.75rem;
+    transition: color 200ms ease;
+  }
+
+  .mobile-language-knob {
+    position: absolute;
+    inset: 4px;
+    width: calc(50% - 6px);
+    background: #111827;
+    border-radius: 9999px;
+    z-index: 1;
+    transition: transform 200ms ease;
+  }
+
+  [data-active="zh"] .mobile-language-knob {
+    transform: translateX(100%);
+  }
+
+  [data-active="en"] .mobile-language-option:first-of-type,
+  [data-active="zh"] .mobile-language-option:nth-of-type(2) {
+    color: #ffffff;
   }
 </style>

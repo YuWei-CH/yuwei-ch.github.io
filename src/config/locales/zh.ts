@@ -315,9 +315,13 @@ export const zh = {
       more: "更多关于我",
       involvement: "参与",
       hobbies: "创意兴趣",
+      openMenu: "打开菜单",
+      closeMenu: "关闭菜单",
     },
     hero: {
       greeting: "你好！👋",
+      ctaPrimary: "查看项目",
+      ctaSecondary: "联系我",
     },
     about: {
       title: "关于我",

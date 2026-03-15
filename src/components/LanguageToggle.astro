@@ -9,7 +9,7 @@ interface Props {
 const { meta, variant = "fixed" } = Astro.props;
 const wrapperClass =
   variant === "fixed"
-    ? "fixed top-4 right-4 md:top-6 md:right-10 z-[60]"
+    ? "hidden md:block fixed top-4 right-4 md:top-6 md:right-10 z-[60]"
     : "";
 ---
 

@@ -28,9 +28,13 @@ export const en = {
       more: "More About Me",
       involvement: "Involvement",
       hobbies: "Creative Interests",
+      openMenu: "Open menu",
+      closeMenu: "Close menu",
     },
     hero: {
       greeting: "Hello! 👋",
+      ctaPrimary: "View Projects",
+      ctaSecondary: "Contact Me",
     },
     about: {
       title: "About Me",
