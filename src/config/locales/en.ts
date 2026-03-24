@@ -33,8 +33,8 @@ export const en = {
     },
     hero: {
       greeting: "Hello! 👋",
-      ctaPrimary: "View Work Experience",
-      ctaSecondary: "Contact Me",
+      ctaPrimary: "View My Experience",
+      ctaSecondary: "Connect on LinkedIn",
     },
     about: {
       title: "About Me",

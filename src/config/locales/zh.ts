@@ -320,8 +320,8 @@ export const zh = {
     },
     hero: {
       greeting: "你好！👋",
-      ctaPrimary: "查看工作经历",
-      ctaSecondary: "联系我",
+      ctaPrimary: "查看过往经历",
+      ctaSecondary: "在 LinkedIn 联系我",
     },
     about: {
       title: "关于我",
