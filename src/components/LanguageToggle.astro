@@ -71,11 +71,15 @@ const wrapperClass =
     const saved = localStorage.getItem("preferred-lang");
     applyLang(saved || body.dataset.lang || fallback);
 
-    document.querySelectorAll("[data-lang-toggle]").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const next = btn.getAttribute("data-active") === "en" ? "zh" : "en";
-        applyLang(next);
-      });
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+
+      const btn = target.closest("[data-lang-toggle]");
+      if (!(btn instanceof HTMLElement)) return;
+
+      const next = btn.getAttribute("data-active") === "en" ? "zh" : "en";
+      applyLang(next);
     });
   })();
 </script>
