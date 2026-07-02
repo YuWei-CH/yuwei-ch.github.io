@@ -6,34 +6,34 @@ export const news = [
       "I am excited to join Waymo as a summer intern, where I am working on an exciting machine learning project with the Simulation team.",
   },
   {
-    title: "RABT accepted to CBP-NG at ISCA 2026",
+    title: "RABT accepted to the CBP-NG Workshop at ISCA 2026",
     date: "Apr 2026",
     description:
-      "Our project and paper, [*RABT: Run-Ahead Block TAGE*](https://dn711300.ca.archive.org/0/items/cbp-ng_proceedings/Gupta_et_al-paper.pdf), has been accepted to [CBP-NG](https://cbp-ng.bpchamp.com/) at ISCA 2026. Many thanks to all contributors!",
+      "Our project and paper, [*RABT: Run-Ahead Block TAGE*](https://dn711300.ca.archive.org/0/items/cbp-ng_proceedings/Gupta_et_al-paper.pdf), has been accepted to the [CBP-NG Workshop](https://cbp-ng.bpchamp.com/) at ISCA 2026. Many thanks to all contributors!",
   },
   {
     title: "Paper accepted to HPCA 2026",
     date: "Nov 2025",
     description:
-      "A paper I contributed to, [*HDPAT: Hierarchical Distributed Page Address Translation for Wafer-Scale GPUs*](https://ieeexplore.ieee.org/document/11408538), has been accepted. Many thanks to Daoxuan and Prof. Yifan.",
+      "A paper I contributed to, [*HDPAT: Hierarchical Distributed Page Address Translation for Wafer-Scale GPUs*](https://ieeexplore.ieee.org/document/11408538), has been accepted by HPCA 2026. Many thanks to Daoxuan and Prof. Yifan.",
   },
   {
     title: "Poster accepted to SC25 Poster Session",
     date: "Sep 2025",
     description:
-      "A poster summarizing my summer internship work, [*Optimizing and Extending Periodogram Computations for Astronomy*](https://sc25.supercomputing.org/proceedings/posters/poster_pages/post133.html), has been accepted. Many thanks to my mentor, Dr. Lehman Garrison.",
+      "A research poster from my summer internship at the Flatiron Institute, [*Optimizing and Extending Periodogram Computations for Astronomy*](https://sc25.supercomputing.org/proceedings/posters/poster_pages/post133.html), has been accepted to SC25. Many thanks to my mentor, Dr. Lehman Garrison.",
   },
   {
     title: "Started MCS program at UIUC",
     date: "Aug 2025",
     description:
-      "Excited to begin the Master of Computer Science program at the University of Illinois Urbana-Champaign (UIUC) and to grow academically and professionally.",
+      "Excited to begin the Master of Computer Science program at the University of Illinois Urbana-Champaign (UIUC) and to grow academically and professionally!",
   },
   {
     title: "Joined Flatiron Institute as HPC Intern",
     date: "May 2025",
     description:
-      "High-performance computing internship at the Flatiron Institute (Simons Foundation), focusing on parallel optimization for HPC applications.",
+      "High-performance computing internship at the Flatiron Institute (Simons Foundation), focusing on parallel optimization for HPC applications and contributing primarily to the [nifty-ls](https://github.com/flatironinstitute/nifty-ls) project.",
   },
   {
     title: "Paper accepted to ISPASS 2025",

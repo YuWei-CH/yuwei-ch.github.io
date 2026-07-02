@@ -1,7 +1,7 @@
 export const zh = {
   name: "孙钰伟（Peter）",
   title: "纽约大学(NYU) -> 伊利诺伊大学香槟分校(UIUC) · 高性能计算 & AI Infra",
-  description: "展示孙宇巍在高性能计算、个人项目和职业经历方面的成果。",
+  description: "展示孙钰伟在高性能计算、个人项目和职业经历方面的成果。",
   accentColor: "#E84A27",
   social: {
     email: "yuweis2@illinois.edu",
@@ -127,30 +127,30 @@ export const zh = {
       title: "RABT 被 ISCA 2026 CBP-NG 录用",
       date: "2026 年 4 月",
       description:
-        "我们的项目与论文 [*RABT: Run-Ahead Block TAGE*](https://dn711300.ca.archive.org/0/items/cbp-ng_proceedings/Gupta_et_al-paper.pdf) 被 ISCA 2026 的 [CBP-NG](https://cbp-ng.bpchamp.com/) 录用。感谢所有贡献者！",
+        "我们的项目与论文 [*RABT: Run-Ahead Block TAGE*](https://dn711300.ca.archive.org/0/items/cbp-ng_proceedings/Gupta_et_al-paper.pdf) 被 ISCA 2026 的 [CBP-NG 研讨会](https://cbp-ng.bpchamp.com/) 录用。感谢所有贡献者！",
     },
     {
       title: "论文被 HPCA 2026 录用",
       date: "2025 年 11 月",
-      description: "我参与的论文 [*HDPAT: Hierarchical Distributed Page Address Translation for Wafer-Scale GPUs*](https://ieeexplore.ieee.org/document/11408538) 被录用。感谢 Daoxuan学长 和 Yifan 教授的指导。",
+      description: "我参与的论文 [*HDPAT: Hierarchical Distributed Page Address Translation for Wafer-Scale GPUs*](https://ieeexplore.ieee.org/document/11408538) 被 HPCA2026录用。感谢 Daoxuan学长 和 Yifan 教授的指导。",
     },
     {
       title: "海报入选 SC25 海报展示",
       date: "2025 年 9 月",
       description:
-        "暑期实习工作的总结海报 [*Optimizing and Extending Periodogram Computations for Astronomy*](https://sc25.supercomputing.org/proceedings/posters/poster_pages/post133.html) 被录用。感谢导师 Dr. Lehman Garrison。",
+        "在Flatiron Institute的暑期实习工作的研究海报 [*Optimizing and Extending Periodogram Computations for Astronomy*](https://sc25.supercomputing.org/proceedings/posters/poster_pages/post133.html) 被SC25录用。感谢导师 Dr. Lehman Garrison。",
     },
     {
       title: "开启 UIUC MCS 学习",
       date: "2025 年 8 月",
       description:
-        "很高兴加入伊利诺伊大学香槟分校 (UIUC) 计算机科学硕士项目，期待学术与职业上的成长。",
+        "很高兴加入伊利诺伊大学香槟分校 (UIUC) 计算机科学硕士项目，期待学术与职业上的成长！",
     },
     {
       title: "加入 Flatiron Institute 担任 HPC 实习生",
       date: "2025 年 5 月",
       description:
-        "在 Flatiron Institute (Simons Foundation) 从事高性能计算实习，专注于 HPC 应用的并行优化。",
+        "在 Flatiron Institute (Simons Foundation) 从事高性能计算实习，专注于 HPC 应用的并行优化。主要参与 [nifty-ls](https://github.com/flatironinstitute/nifty-ls) 项目。",
     },
     {
       title: "论文被 ISPASS 2025 录用",
