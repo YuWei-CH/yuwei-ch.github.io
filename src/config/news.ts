@@ -15,13 +15,13 @@ export const news = [
     title: "Paper accepted to HPCA 2026",
     date: "Nov 2025",
     description:
-      "A paper I contributed to, *HDPAT: Hierarchical Distributed Page Address Translation for Wafer-Scale GPUs*, has been accepted. Many thanks to Daoxuan and Prof. Yifan.",
+      "A paper I contributed to, [*HDPAT: Hierarchical Distributed Page Address Translation for Wafer-Scale GPUs*](https://ieeexplore.ieee.org/document/11408538), has been accepted. Many thanks to Daoxuan and Prof. Yifan.",
   },
   {
     title: "Poster accepted to SC25 Poster Session",
     date: "Sep 2025",
     description:
-      "A poster summarizing my summer internship work, *Optimizing and Extending Periodogram Computations for Astronomy*, has been accepted. Many thanks to my mentor, Dr. Lehman Garrison.",
+      "A poster summarizing my summer internship work, [*Optimizing and Extending Periodogram Computations for Astronomy*](https://sc25.supercomputing.org/proceedings/posters/poster_pages/post133.html), has been accepted. Many thanks to my mentor, Dr. Lehman Garrison.",
   },
   {
     title: "Started MCS program at UIUC",
@@ -39,7 +39,7 @@ export const news = [
     title: "Paper accepted to ISPASS 2025",
     date: "Mar 2025",
     description:
-      "Our work, *Luthier: A Dynamic Binary Instrumentation Framework Targeting AMD GPUs*, has been accepted to ISPASS 2025. Many thanks to Daoxuan and Prof. Yifan.",
+      "Our work, [*Luthier: A Dynamic Binary Instrumentation Framework Targeting AMD GPUs*](https://ieeexplore.ieee.org/document/11096405), has been accepted to ISPASS 2025. Many thanks to Daoxuan and Prof. Yifan.",
   },
   {
     title: "Joined the Scalable Architecture Lab as Research Intern",
@@ -51,7 +51,7 @@ export const news = [
     title: "Contributed to Reform Hipify",
     date: "May 2024",
     description:
-      "Will work at NYU HPC during the summer, contributing to the reformWeb and *Reform* projects and planning to continue working on AMD HPC Application Adaptation for the remainder of my time at NYU.",
+      "Will work at NYU HPC during the summer, contributing to the reformWeb and [*Reform*](https://github.com/gencorefacility/reform) projects and planning to continue working on AMD HPC Application Adaptation for the remainder of my time at NYU.",
   },
   {
     title: "Participated in SC23 Student Cluster Competition",

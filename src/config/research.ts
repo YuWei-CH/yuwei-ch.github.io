@@ -9,7 +9,8 @@ export const research = [
     focus:
       "Poster on optimizing and extending Lomb-Scargle periodogram computations for astronomy using OpenMP and CUDA",
     publicationTitle: "Optimizing and Extending Periodogram Computations for Astronomy",
-    publicationLink: "https://sc25.conference-program.com/presentation/?id=post133&sess=sess527",
+    publicationLink:
+      "https://sc25.supercomputing.org/proceedings/posters/poster_pages/post133.html",
     mentor: "Dr. Lehman Garrison",
   },
   {
@@ -20,7 +21,7 @@ export const research = [
       "Hierarchical distributed page address translation for wafer-scale GPUs to improve memory-system scalability.",
     publicationTitle:
       "HDPAT: Hierarchical Distributed Page Address Translation for Wafer-Scale GPUs",
-    publicationLink: "https://hpca-conf.org/",
+    publicationLink: "https://ieeexplore.ieee.org/document/11408538",
     mentor: "Prof. Yifan Sun",
   },
   {
@@ -31,7 +32,7 @@ export const research = [
       "Dynamic binary instrumentation for AMD GPUs to study performance of large-scale accelerators.",
     publicationTitle:
       "Luthier: A Dynamic Binary Instrumentation Framework Targeting AMD GPUs",
-    publicationLink: "https://ieeexplore.ieee.org/abstract/document/11096405",
+    publicationLink: "https://ieeexplore.ieee.org/document/11096405",
     mentor: "Prof. Yifan Sun",
   },
 ];

@@ -64,7 +64,7 @@ export const zh = {
       company: "NYU High-Performance Computing Team",
       title: "HPC 助理",
       dateRange: "2024 年 5 月 - 2024 年 9 月",
-      links: [{ label: "Reform", href: "https://github.com/YuWei-CH/reform" }],
+      links: [{ label: "Reform", href: "https://github.com/gencorefacility/reform" }],
       bullets: [
         "为 Reform 增强顺序处理、压缩文件处理和并行执行，适配基因组工作负载。",
         "更新 ReformWeb，使 Reform 可通过 Flask、SQLite、Redis、Werkzeug、Jinja2 在 HPC 服务器上运行。",
@@ -91,7 +91,8 @@ export const zh = {
       dateRange: "2025 年 9 月",
       focus: "海报展示：通过 OpenMP 和 CUDA 优化并扩展 Lomb-Scargle 周期图计算。",
       publicationTitle: "Optimizing and Extending Periodogram Computations for Astronomy",
-      publicationLink: "https://sc25.conference-program.com/presentation/?id=post133&sess=sess527",
+      publicationLink:
+        "https://sc25.supercomputing.org/proceedings/posters/poster_pages/post133.html",
       mentor: "Dr. Lehman Garrison",
     },
     {
@@ -101,7 +102,7 @@ export const zh = {
       focus: "提出晶圆级 GPU 的分层分布式页地址转换方案，提升内存系统可扩展性。",
       publicationTitle:
         "HDPAT: Hierarchical Distributed Page Address Translation for Wafer-Scale GPUs",
-      publicationLink: "https://hpca-conf.org/",
+      publicationLink: "https://ieeexplore.ieee.org/document/11408538",
       mentor: "Prof. Yifan Sun",
     },
     {
@@ -111,7 +112,7 @@ export const zh = {
       focus: "为 AMD GPU 设计动态二进制插桩工具，研究GPU加速器的性能特征。",
       publicationTitle:
         "Luthier: A Dynamic Binary Instrumentation Framework Targeting AMD GPUs",
-      publicationLink: "https://ieeexplore.ieee.org/abstract/document/11096405",
+      publicationLink: "https://ieeexplore.ieee.org/document/11096405",
       mentor: "Prof. Yifan Sun",
     },
   ],
@@ -131,13 +132,13 @@ export const zh = {
     {
       title: "论文被 HPCA 2026 录用",
       date: "2025 年 11 月",
-      description: "我参与的论文 *HDPAT: Hierarchical Distributed Page Address Translation for Wafer-Scale GPUs* 被录用。感谢 Daoxuan学长 和 Yifan 教授的指导。",
+      description: "我参与的论文 [*HDPAT: Hierarchical Distributed Page Address Translation for Wafer-Scale GPUs*](https://ieeexplore.ieee.org/document/11408538) 被录用。感谢 Daoxuan学长 和 Yifan 教授的指导。",
     },
     {
       title: "海报入选 SC25 海报展示",
       date: "2025 年 9 月",
       description:
-        "暑期实习工作的总结海报 *Optimizing and Extending Periodogram Computations for Astronomy* 被录用。感谢导师 Dr. Lehman Garrison。",
+        "暑期实习工作的总结海报 [*Optimizing and Extending Periodogram Computations for Astronomy*](https://sc25.supercomputing.org/proceedings/posters/poster_pages/post133.html) 被录用。感谢导师 Dr. Lehman Garrison。",
     },
     {
       title: "开启 UIUC MCS 学习",
@@ -155,7 +156,7 @@ export const zh = {
       title: "论文被 ISPASS 2025 录用",
       date: "2025 年 3 月",
       description:
-        "我们的工作 *Luthier: A Dynamic Binary Instrumentation Framework Targeting AMD GPUs* 被 ISPASS 2025 录用。感谢 Daoxuan 学长 和 Yifan 教授。",
+        "我们的工作 [*Luthier: A Dynamic Binary Instrumentation Framework Targeting AMD GPUs*](https://ieeexplore.ieee.org/document/11096405) 被 ISPASS 2025 录用。感谢 Daoxuan 学长 和 Yifan 教授。",
     },
     {
       title: "加入可扩展体系结构实验室",
@@ -166,7 +167,7 @@ export const zh = {
       title: "参与 Reform Hipify",
       date: "2024 年 5 月",
       description:
-        "将在暑期继续在 NYU HPC 工作，贡献 reformWeb 和 *Reform*，并持续推进 AMD HPC 应用适配。",
+        "将在暑期继续在 NYU HPC 工作，贡献 reformWeb 和 [*Reform*](https://github.com/gencorefacility/reform)，并持续推进 AMD HPC 应用适配。",
     },
     {
       title: "参加 SC23 学生超算竞赛",
