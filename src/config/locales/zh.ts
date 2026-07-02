@@ -117,6 +117,18 @@ export const zh = {
   ],
   news: [
     {
+      title: "加入 Waymo 担任暑期实习生",
+      date: "2026 年 5 月",
+      description:
+        "我很高兴加入 Waymo 担任暑期实习生，在仿真团队参与一项令人兴奋的机器学习项目。",
+    },
+    {
+      title: "RABT 被 ISCA 2026 CBP-NG 录用",
+      date: "2026 年 4 月",
+      description:
+        "我们的项目与论文 [*RABT: Run-Ahead Block TAGE*](https://dn711300.ca.archive.org/0/items/cbp-ng_proceedings/Gupta_et_al-paper.pdf) 被 ISCA 2026 的 [CBP-NG](https://cbp-ng.bpchamp.com/) 录用。感谢所有贡献者！",
+    },
+    {
       title: "论文被 HPCA 2026 录用",
       date: "2025 年 11 月",
       description: "我参与的论文 *HDPAT: Hierarchical Distributed Page Address Translation for Wafer-Scale GPUs* 被录用。感谢 Daoxuan学长 和 Yifan 教授的指导。",

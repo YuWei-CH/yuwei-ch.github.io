@@ -5,10 +5,15 @@ const accentColor = localeEntries[0][1].accentColor;
 const hasNews = localeEntries.some(([, siteConfig]) => siteConfig.news && siteConfig.news.length > 0);
 
 const highlightHTML = (text: string) =>
-  text.replace(
-    /\*([^*]+)\*/g,
-    `<span class="font-semibold" style="color:${accentColor}">$1</span>`
-  );
+  text
+    .replace(
+      /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g,
+      `<a href="$2" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:opacity-80">$1</a>`
+    )
+    .replace(
+      /\*([^*]+)\*/g,
+      `<span class="font-semibold" style="color:${accentColor}">$1</span>`
+    );
 ---
 
 {

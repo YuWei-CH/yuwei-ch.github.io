@@ -1,5 +1,17 @@
 export const news = [
   {
+    title: "Joined Waymo as a Summer Intern",
+    date: "May 2026",
+    description:
+      "I am excited to join Waymo as a summer intern, where I am working on an exciting machine learning project with the Simulation team.",
+  },
+  {
+    title: "RABT accepted to CBP-NG at ISCA 2026",
+    date: "Apr 2026",
+    description:
+      "Our project and paper, [*RABT: Run-Ahead Block TAGE*](https://dn711300.ca.archive.org/0/items/cbp-ng_proceedings/Gupta_et_al-paper.pdf), has been accepted to [CBP-NG](https://cbp-ng.bpchamp.com/) at ISCA 2026. Many thanks to all contributors!",
+  },
+  {
     title: "Paper accepted to HPCA 2026",
     date: "Nov 2025",
     description:
