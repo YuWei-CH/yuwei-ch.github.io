@@ -3,6 +3,17 @@ export const researchIntro =
 
 export const research = [
   {
+    id: "rabt",
+    org: "ISCA 2026 CBP-NG Workshop",
+    title: "Branch Prediction Research",
+    dateRange: "2026",
+    focus: "Contributed to RABT: Run-Ahead Block TAGE, accepted to the CBP-NG workshop at ISCA 2026.",
+    publicationTitle: "RABT: Run-Ahead Block TAGE",
+    publicationLink:
+      "https://dn711300.ca.archive.org/0/items/cbp-ng_proceedings/Gupta_et_al-paper.pdf",
+  },
+  {
+    id: "flatiron-periodogram",
     org: "Flatiron Institute, Simons Foundation",
     title: "HPC Scientific Software",
     dateRange: "Sep 2025",
@@ -14,6 +25,7 @@ export const research = [
     mentor: "Dr. Lehman Garrison",
   },
   {
+    id: "hdpat",
     org: "Scalable Architecture Lab",
     title: "Wafer-scale GPU Architecture",
     dateRange: "March 2025",
@@ -25,6 +37,7 @@ export const research = [
     mentor: "Prof. Yifan Sun",
   },
   {
+    id: "luthier",
     org: "Scalable Architecture Lab",
     title: "GPU Performance Tooling",
     dateRange: "Sep 2024",

@@ -1,5 +1,6 @@
 export const hobbies = [
   {
+    id: "photography",
     name: "Photography",
     description:
       "I like photos, will updated later",
@@ -10,6 +11,7 @@ export const hobbies = [
     ],
   },
   {
+    id: "poetry",
     name: "Poetry",
     description:
       "Learn how to write poem from Prof. Felsenthal. Will updated latter",

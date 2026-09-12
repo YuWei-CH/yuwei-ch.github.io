@@ -6,8 +6,9 @@ import { memberships } from "../memberships";
 import { news } from "../news";
 import { projects } from "../projects";
 import { research, researchIntro } from "../research";
+import type { SiteConfig } from "../schema";
 
-export const en = {
+export const en: SiteConfig = {
   ...baseConfig,
   experience,
   researchIntro,

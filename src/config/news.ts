@@ -1,77 +1,90 @@
 export const news = [
   {
-    title: "Joined Waymo as a Summer Intern",
-    date: "May 2026",
+    id: "waymo-complete",
+    title: "Completed Software Engineering Internship at Waymo",
+    date: "Aug 2026",
     description:
-      "I am excited to join Waymo as a summer intern, where I am working on an exciting machine learning project with the Simulation team.",
+      "Completed a software engineering internship with Waymo's Simulation team, working on an ML workflow for driving-set candidate selection.",
   },
   {
+    id: "rabt-accepted",
     title: "RABT accepted to the CBP-NG Workshop at ISCA 2026",
     date: "Apr 2026",
     description:
       "Our project and paper, [*RABT: Run-Ahead Block TAGE*](https://dn711300.ca.archive.org/0/items/cbp-ng_proceedings/Gupta_et_al-paper.pdf), has been accepted to the [CBP-NG Workshop](https://cbp-ng.bpchamp.com/) at ISCA 2026. Many thanks to all contributors!",
   },
   {
+    id: "hdpat-accepted",
     title: "Paper accepted to HPCA 2026",
     date: "Nov 2025",
     description:
       "A paper I contributed to, [*HDPAT: Hierarchical Distributed Page Address Translation for Wafer-Scale GPUs*](https://ieeexplore.ieee.org/document/11408538), has been accepted by HPCA 2026. Many thanks to Daoxuan and Prof. Yifan.",
   },
   {
+    id: "sc25-poster",
     title: "Poster accepted to SC25 Poster Session",
     date: "Sep 2025",
     description:
       "A research poster from my summer internship at the Flatiron Institute, [*Optimizing and Extending Periodogram Computations for Astronomy*](https://sc25.supercomputing.org/proceedings/posters/poster_pages/post133.html), has been accepted to SC25. Many thanks to my mentor, Dr. Lehman Garrison.",
   },
   {
+    id: "uiuc-mcs",
     title: "Started MCS program at UIUC",
     date: "Aug 2025",
     description:
       "Excited to begin the Master of Computer Science program at the University of Illinois Urbana-Champaign (UIUC) and to grow academically and professionally!",
   },
   {
+    id: "flatiron-intern",
     title: "Joined Flatiron Institute as HPC Intern",
     date: "May 2025",
     description:
       "High-performance computing internship at the Flatiron Institute (Simons Foundation), focusing on parallel optimization for HPC applications and contributing primarily to the [nifty-ls](https://github.com/flatironinstitute/nifty-ls) project.",
   },
   {
+    id: "luthier-accepted",
     title: "Paper accepted to ISPASS 2025",
     date: "Mar 2025",
     description:
       "Our work, [*Luthier: A Dynamic Binary Instrumentation Framework Targeting AMD GPUs*](https://ieeexplore.ieee.org/document/11096405), has been accepted to ISPASS 2025. Many thanks to Daoxuan and Prof. Yifan.",
   },
   {
+    id: "scalable-architecture-lab",
     title: "Joined the Scalable Architecture Lab as Research Intern",
     date: "Aug 2024",
     description:
       "Worked on GPU performance profiling tools and the Wafer-Scale GPU project under the guidance of Prof. Yifan.",
   },
   {
+    id: "reform-hipify",
     title: "Contributed to Reform Hipify",
     date: "May 2024",
     description:
       "Will work at NYU HPC during the summer, contributing to the reformWeb and [*Reform*](https://github.com/gencorefacility/reform) projects and planning to continue working on AMD HPC Application Adaptation for the remainder of my time at NYU.",
   },
   {
+    id: "sc23",
     title: "Participated in SC23 Student Cluster Competition",
     date: "Nov 2023",
     description:
       "Competed in the SC23 Student Cluster Competition, achieving *6th place globally* —go team NYU!",
   },
   {
+    id: "uber-career-prep",
     title: "Received UCP Fellowship",
     date: "Jan 2023",
     description:
       "Honored to be selected for the *Uber Career Prep (UCP)* 2023 Software Engineering Fellowship Program.",
   },
   {
+    id: "google-hps",
     title: "Participated in Google HPS 2022",
     date: "Apr 2022",
     description:
       "Participated in the Google Hardware Product Sprint 2022, developing a PCB-based clock as part of the EE track.",
   },
   {
+    id: "nyu-tandon",
     title: "Accepted to NYU Tandon",
     date: "Dec 2021",
     description:
