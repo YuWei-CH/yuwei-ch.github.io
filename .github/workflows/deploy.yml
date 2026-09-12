@@ -23,11 +23,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install, build, and upload your site
-        uses: withastro/action@v5
-        # 默认会自动检测 package-lock.json 用 npm
-        # 如果以后你换成 pnpm/yarn 可以在这里加:
-        # with:
-        #   package-manager: pnpm@latest
+        uses: withastro/action@v6
+        with:
+          node-version: 22
 
   deploy:
     needs: build
@@ -38,4 +36,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

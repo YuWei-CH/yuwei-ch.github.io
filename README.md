@@ -1,29 +1,32 @@
 # Yuwei (Peter) Sun — Portfolio
 
-Astro + Tailwind site showcasing my work in high-performance computing, GPU optimization, and research across Flatiron Institute and Scalable Architecture Lab.
-
-## What’s inside
-- **Sections:** News, About, Work Experience, Research (publications), Education, Projects, Involvement, Creative Interests.
-- **Pages:** Home (`/`), Involvement (`/involvement`), Creative Interests (`/hobbies`).
-- **Config:** All content lives in `src/config.ts` (bio, social, skills, projects, experience, research, education, memberships, hobbies).
+Static personal site built with Astro and Tailwind CSS. It includes a home page, an involvement page, and a creative interests page, each available in English and Chinese through the language toggle.
 
 ## Local development
+
+Use Node.js 22 or newer (22.12.0 minimum).
+
 ```bash
-npm install
+npm ci
 npm run dev
 ```
-Then open the printed localhost URL (default `http://localhost:4321/`).
 
-## Deployment
-Build static assets with:
+Open the local URL printed by Astro, usually `http://localhost:4321/`.
+
+## Content and layout
+
+- English content is in `src/config/*.ts`, assembled by `src/config/locales/en.ts`.
+- Chinese content is in `src/config/locales/zh.ts`.
+- Both locales follow `src/config/schema.ts`. Entries in each collection use matching, unique `id` values and the same order. `src/config.ts` checks this during a build.
+- `src/layouts/BaseLayout.astro` owns the shared page head, header, language toggle, and footer. Page content is in `src/pages/`; presentation components are in `src/components/`.
+
+When adding an experience, project, news item, or other collection entry, add its translation with the same `id` in the corresponding position. The language toggle updates the page title and description along with visible content.
+
+## Validation and deployment
+
 ```bash
+npm run check
 npm run build
 ```
-Deploy the `dist/` output to your preferred static host (GitHub Pages, Netlify, Vercel, Cloudflare Pages, etc.).
 
-## TODO
-- Add involvement section content.
-- Upload photo.
-- Update poem.
-- Check other sessions.
-- Change domain.
+`check` runs Astro's type and template diagnostics. `build` runs that check and then builds the three static pages, including the bilingual entry validation. Pull requests run the build in `.github/workflows/check.yml`. The GitHub Pages workflow in `.github/workflows/deploy.yml` builds and deploys the `dist/` output on pushes to `master` or manual dispatch.
