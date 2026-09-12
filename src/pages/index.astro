@@ -1,5 +1,4 @@
 ---
-import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import About from "../components/About.astro";
 import Experience from "../components/Experience.astro";
@@ -7,47 +6,23 @@ import Research from "../components/Research.astro";
 import Projects from "../components/Projects.astro";
 import Education from "../components/Education.astro";
 import News from "../components/News.astro";
-import Footer from "../components/Footer.astro";
-import { locales, defaultLocale } from "../config";
-import LanguageToggle from "../components/LanguageToggle.astro";
-import "../styles/global.css";
+import { pageMeta } from "../config";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-const meta = Object.fromEntries(
-  Object.entries(locales).map(([lang, config]) => [
-    lang,
-    { title: `${config.name} - ${config.title}`, description: config.description },
-  ])
-);
-const defaultConfig = locales[defaultLocale];
+const meta = pageMeta((config) => ({
+  title: `${config.name} - ${config.title}`,
+  description: config.description,
+}));
 ---
 
-<html lang={defaultLocale}>
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={defaultConfig.description} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <title>{defaultConfig.name} - {defaultConfig.title}</title>
-  </head>
-  <body data-lang={defaultLocale}>
-    <LanguageToggle meta={meta} />
-    <Header />
-    <section>
-      <Hero />
-      <News />
-      <About />
-      <Experience />
-      <Projects />
-      <Research />
-      <Education />
-    </section>
-    <Footer />
-  </body>
-</html>
+<BaseLayout meta={meta}>
+  <main>
+    <Hero />
+    <News />
+    <About />
+    <Experience />
+    <Projects />
+    <Research />
+    <Education />
+  </main>
+</BaseLayout>

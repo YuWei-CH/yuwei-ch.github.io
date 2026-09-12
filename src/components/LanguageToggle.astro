@@ -9,8 +9,9 @@ interface Props {
 const { meta, variant = "fixed" } = Astro.props;
 const wrapperClass =
   variant === "fixed"
-    ? "hidden md:block fixed top-4 right-4 md:top-6 md:right-10 z-[60]"
+    ? "hidden xl:block fixed top-4 right-4 xl:top-6 xl:right-10 z-[60]"
     : "";
+const serializedMeta = JSON.stringify(meta).replace(/</g, "\\u003c");
 ---
 
 <div class={`language-toggle-wrapper ${wrapperClass}`}>
@@ -21,20 +22,16 @@ const wrapperClass =
   </button>
 </div>
 
-<script type="application/json" id="locale-meta">
-  {JSON.stringify(meta)}
-</script>
+<script is:inline type="application/json" id="locale-meta" set:html={serializedMeta} />
 
 <script is:inline>
   (() => {
-    if (window.__langToggleInitialized) return;
-    window.__langToggleInitialized = true;
     const metaEl = document.getElementById("locale-meta");
     let meta = {};
 
     try {
       meta = metaEl ? JSON.parse(metaEl.textContent || "{}") : {};
-    } catch (error) {
+    } catch {
       meta = {};
     }
 

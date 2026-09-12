@@ -1,111 +1,53 @@
 ---
 import { localeEntries, defaultLocale } from "../config";
+import type { SiteConfig } from "../config";
+
+const getNavigation = (config: SiteConfig) => {
+  const { nav } = config.ui;
+  return {
+    primary: [
+      ...(config.news.length ? [{ href: "/#news", label: nav.news }] : []),
+      { href: "/#about", label: nav.about },
+      ...(config.experience.length ? [{ href: "/#experience", label: nav.experience }] : []),
+      ...(config.projects.length ? [{ href: "/#projects", label: nav.projects }] : []),
+      ...(config.research.length ? [{ href: "/#research", label: nav.research }] : []),
+      ...(config.education.length ? [{ href: "/#education", label: nav.education }] : []),
+    ],
+    more: [
+      ...(config.memberships.length ? [{ href: "/involvement", label: nav.involvement }] : []),
+      ...(config.hobbies.length ? [{ href: "/hobbies", label: nav.hobbies }] : []),
+    ],
+  };
+};
 ---
 
-<header
-  id="header"
-  class="fixed top-0 left-0 right-0 z-50 hidden md:block transition-all duration-300"
->
+<header id="header" class="fixed top-0 left-0 right-0 z-50 hidden xl:block transition-all duration-300">
   <nav class="max-w-7xl mx-auto px-8 py-4">
     {localeEntries.map(([lang, siteConfig]) => {
-      const hasNews = siteConfig.news && siteConfig.news.length > 0;
-      const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
-      const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
-      const hasResearch = siteConfig.research && siteConfig.research.length > 0;
-      const hasEducation = siteConfig.education && siteConfig.education.length > 0;
-      const hasMemberships = siteConfig.memberships && siteConfig.memberships.length > 0;
-      const hasHobbies = siteConfig.hobbies && siteConfig.hobbies.length > 0;
-      const hasMore = hasMemberships || hasHobbies;
-
+      const navigation = getNavigation(siteConfig);
       return (
         <ul class={`lang-block lang-${lang} flex items-center gap-8 justify-center`}>
-          {hasNews && (
+          {navigation.primary.map((item) => (
             <li>
-              <a
-                href="/#news"
-                class="text-gray-700 hover:text-black transition-colors font-medium"
-              >
-                {siteConfig.ui.nav.news}
+              <a href={item.href} class="text-gray-700 hover:text-black transition-colors font-medium">
+                {item.label}
               </a>
             </li>
-          )}
-          <li>
-            <a
-              href="/#about"
-              class="text-gray-700 hover:text-black transition-colors font-medium"
-            >
-              {siteConfig.ui.nav.about}
-            </a>
-          </li>
-          {hasExperience && (
-            <li>
-              <a
-                href="/#experience"
-                class="text-gray-700 hover:text-black transition-colors font-medium"
-              >
-                {siteConfig.ui.nav.experience}
-              </a>
-            </li>
-          )}
-          {hasProjects && (
-            <li>
-              <a
-                href="/#projects"
-                class="text-gray-700 hover:text-black transition-colors font-medium"
-              >
-                {siteConfig.ui.nav.projects}
-              </a>
-            </li>
-          )}
-          {hasResearch && (
-            <li>
-              <a
-                href="/#research"
-                class="text-gray-700 hover:text-black transition-colors font-medium"
-              >
-                {siteConfig.ui.nav.research}
-              </a>
-            </li>
-          )}
-          {hasEducation && (
-            <li>
-              <a
-                href="/#education"
-                class="text-gray-700 hover:text-black transition-colors font-medium"
-              >
-                {siteConfig.ui.nav.education}
-              </a>
-            </li>
-          )}
-          {hasMore && (
+          ))}
+          {navigation.more.length > 0 && (
             <li class="relative group">
-              <button
-                class="flex items-center gap-1 text-gray-700 hover:text-black transition-colors font-medium focus:outline-none"
-              >
+              <button type="button" class="flex items-center gap-1 text-gray-700 hover:text-black transition-colors font-medium focus:outline-none">
                 {siteConfig.ui.nav.more}
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              <div
-                class="absolute left-1/2 -translate-x-1/2 mt-3 hidden group-hover:block group-focus-within:block bg-white border border-gray-200 rounded-lg shadow-lg min-w-[180px] py-2 z-50"
-              >
-                {hasMemberships && (
-                  <a
-                    href="/involvement"
-                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
-                  >
-                    {siteConfig.ui.nav.involvement}
+              <div class="absolute left-1/2 -translate-x-1/2 mt-3 hidden group-hover:block group-focus-within:block bg-white border border-gray-200 rounded-lg shadow-lg min-w-[180px] py-2 z-50">
+                {navigation.more.map((item) => (
+                  <a href={item.href} class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
+                    {item.label}
                   </a>
-                )}
-                {hasHobbies && (
-                  <a
-                    href="/hobbies"
-                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
-                  >
-                    {siteConfig.ui.nav.hobbies}
-                  </a>
-                )}
+                ))}
               </div>
             </li>
           )}
@@ -115,105 +57,36 @@ import { localeEntries, defaultLocale } from "../config";
   </nav>
 </header>
 
-<div class="fixed top-0 left-0 right-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur md:hidden">
+<div class="fixed top-0 left-0 right-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur xl:hidden">
   {localeEntries.map(([lang, siteConfig]) => {
-    const hasNews = siteConfig.news && siteConfig.news.length > 0;
-    const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
-    const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
-    const hasResearch = siteConfig.research && siteConfig.research.length > 0;
-    const hasEducation = siteConfig.education && siteConfig.education.length > 0;
-    const hasMemberships = siteConfig.memberships && siteConfig.memberships.length > 0;
-    const hasHobbies = siteConfig.hobbies && siteConfig.hobbies.length > 0;
-
+    const navigation = getNavigation(siteConfig);
     return (
       <div class={`lang-block lang-${lang}`} data-mobile-nav>
         <div class="flex items-center justify-between gap-3 px-4 py-3">
           <a href="/#hero" class="min-w-0 truncate text-sm font-semibold tracking-tight text-gray-900">
             {siteConfig.name}
           </a>
-
           <div class="flex items-center gap-2">
-            <button
-              class="mobile-language-toggle"
-              type="button"
-              data-lang-toggle
-              data-active={defaultLocale}
-              aria-label="Toggle language"
-            >
+            <button class="mobile-language-toggle" type="button" data-lang-toggle data-active={defaultLocale} aria-label="Toggle language">
               <span class="mobile-language-option">EN</span>
               <span class="mobile-language-option">中文</span>
               <span class="mobile-language-knob"></span>
             </button>
-
-            <button
-              type="button"
-              class="mobile-menu-button"
-              data-mobile-menu-toggle
-              data-open-label={siteConfig.ui.nav.openMenu}
-              data-close-label={siteConfig.ui.nav.closeMenu}
-              aria-expanded="false"
-              aria-label={siteConfig.ui.nav.openMenu}
-            >
+            <button type="button" class="mobile-menu-button" data-mobile-menu-toggle data-open-label={siteConfig.ui.nav.openMenu} data-close-label={siteConfig.ui.nav.closeMenu} aria-expanded="false" aria-label={siteConfig.ui.nav.openMenu}>
               <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16" />
               </svg>
             </button>
           </div>
         </div>
-
         <div class="hidden border-t border-gray-200 bg-white" data-mobile-menu>
           <nav class="px-4 py-3">
             <ul class="space-y-1">
-              {hasNews && (
+              {[...navigation.primary, ...navigation.more].map((item) => (
                 <li>
-                  <a href="/#news" class="mobile-menu-link" data-mobile-menu-link>{siteConfig.ui.nav.news}</a>
+                  <a href={item.href} class="mobile-menu-link" data-mobile-menu-link>{item.label}</a>
                 </li>
-              )}
-              <li>
-                <a href="/#about" class="mobile-menu-link" data-mobile-menu-link>{siteConfig.ui.nav.about}</a>
-              </li>
-              {hasExperience && (
-                <li>
-                  <a href="/#experience" class="mobile-menu-link" data-mobile-menu-link>
-                    {siteConfig.ui.nav.experience}
-                  </a>
-                </li>
-              )}
-              {hasProjects && (
-                <li>
-                  <a href="/#projects" class="mobile-menu-link" data-mobile-menu-link>
-                    {siteConfig.ui.nav.projects}
-                  </a>
-                </li>
-              )}
-              {hasResearch && (
-                <li>
-                  <a href="/#research" class="mobile-menu-link" data-mobile-menu-link>
-                    {siteConfig.ui.nav.research}
-                  </a>
-                </li>
-              )}
-              {hasEducation && (
-                <li>
-                  <a href="/#education" class="mobile-menu-link" data-mobile-menu-link>
-                    {siteConfig.ui.nav.education}
-                  </a>
-                </li>
-              )}
-              {hasMemberships && (
-                <li>
-                  <a href="/involvement" class="mobile-menu-link" data-mobile-menu-link>
-                    {siteConfig.ui.nav.involvement}
-                  </a>
-                </li>
-              )}
-              {hasHobbies && (
-                <li>
-                  <a href="/hobbies" class="mobile-menu-link" data-mobile-menu-link>
-                    {siteConfig.ui.nav.hobbies}
-                  </a>
-                </li>
-              )}
+              ))}
             </ul>
           </nav>
         </div>
@@ -252,7 +125,7 @@ import { localeEntries, defaultLocale } from "../config";
       const menu = nav.querySelector("[data-mobile-menu]");
       if (!(button instanceof HTMLButtonElement) || !(menu instanceof HTMLElement)) return;
 
-      const setOpen = (open) => {
+      const setOpen = (open: boolean) => {
         button.setAttribute("aria-expanded", String(open));
         button.setAttribute(
           "aria-label",
@@ -275,16 +148,13 @@ import { localeEntries, defaultLocale } from "../config";
     });
   };
 
-  if (!window.__portfolioHeaderInitialized) {
-    window.__portfolioHeaderInitialized = true;
-    syncHeaderBackground();
-    initMobileMenus();
-    window.addEventListener("scroll", syncHeaderBackground);
-    window.addEventListener("hashchange", closeAllMobileMenus);
-    window.addEventListener("resize", () => {
-      if (window.innerWidth >= 768) closeAllMobileMenus();
-    });
-  }
+  syncHeaderBackground();
+  initMobileMenus();
+  window.addEventListener("scroll", syncHeaderBackground);
+  window.addEventListener("hashchange", closeAllMobileMenus);
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 1280) closeAllMobileMenus();
+  });
 </script>
 
 <style>

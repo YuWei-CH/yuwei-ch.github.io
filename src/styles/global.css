@@ -4,6 +4,10 @@ body {
   font-family: 'IBM Plex Mono', monospace;
 }
 
+section[id] {
+  scroll-margin-top: 4rem;
+}
+
 html[data-lang="en"] .lang-zh,
 body[data-lang="en"] .lang-zh {
   display: none !important;
