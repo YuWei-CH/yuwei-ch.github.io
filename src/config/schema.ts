@@ -46,7 +46,12 @@ export interface SiteConfig {
     dateRange: string;
     description: string;
   })[];
-  hobbies: (Identified & { name: string; description: string; highlights: string[] })[];
+  hobbies: (Identified & {
+    name: string;
+    description: string;
+    highlights: string[];
+    link?: { label: string; href: string };
+  })[];
   ui: {
     nav: {
       news: string; about: string; experience: string; education: string;
@@ -62,6 +67,10 @@ export interface SiteConfig {
     research: { title: string; viewWork: string; mentor: string; publication: string };
     memberships: { title: string; pageTitle: string; pageIntro: string };
     hobbies: { title: string; pageIntro: string; badge: string };
+    poetry: {
+      title: string; meta: string; intro: string; favorite: string;
+      read: string; back: string; previous: string; next: string;
+    };
     common: { moreAbout: string; rights: string; thanks: string };
   };
 }

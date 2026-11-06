@@ -412,8 +412,10 @@ export const zh: SiteConfig = {
     {
       id: "poetry",
       name: "诗歌",
-      description: "在 Felsenthal 教授的指导下学习写诗，作品也会陆续更新。",
-      highlights: ["主题：城市、动物与记忆"],
+      description:
+        "2024 年秋季在 Felsenthal 教授的指导下学习写诗，完成了一部二十首诗的作品集：俳句、十四行诗、书信体、图像诗，甚至还有一首用 Python 写成。",
+      highlights: ["20 首诗 · 2024 年秋季作品集", "主题：城市、动物与记忆"],
+      link: { label: "阅读诗作 ↓", href: "#poetry" },
     },
   ],
   ui: {
@@ -471,6 +473,17 @@ export const zh: SiteConfig = {
       title: "创意兴趣",
       pageIntro: "平衡工程工作的个人创作：摄影与诗歌。",
       badge: "创意",
+    },
+    poetry: {
+      title: "诗集",
+      meta: "2024 年秋季 · 指导老师：Felsenthal 教授",
+      intro:
+        "2024 年秋季作品集中的二十首诗：城市夜色、四季流转、家人与师长，还有几首只有程序员才会写的诗。点击任意一首即可阅读（诗作为英文原文）。",
+      favorite: "我最喜欢的一首",
+      read: "阅读全诗 →",
+      back: "← 返回诗集",
+      previous: "← 上一首",
+      next: "下一首 →",
     },
     common: {
       moreAbout: "更多关于我",

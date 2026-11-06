@@ -1,0 +1,90 @@
+---
+import type { Poem } from "../config/poems";
+
+interface Props {
+  poem: Poem;
+}
+
+const { poem } = Astro.props;
+const centered = poem.align === "center";
+
+const escapeHtml = (text: string) =>
+  text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+const inline = (text: string) =>
+  escapeHtml(text)
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*(.+?)\*/g, "<em>$1</em>");
+
+// Earth-toned tiles stand in for the satellite photos of the original visual poem.
+// Each letter always gets the same terrain, like the repeated photos in the original.
+const terrains = [
+  "linear-gradient(140deg, #4f6b3d, #2e4529)",
+  "linear-gradient(140deg, #8c8f80, #5d6358)",
+  "linear-gradient(140deg, #a88b5c, #6d5636)",
+  "linear-gradient(140deg, #5c7e8b, #34505c)",
+  "linear-gradient(140deg, #b2643f, #7a3c25)",
+  "linear-gradient(140deg, #6f8e4f, #445c30)",
+];
+const terrainFor = (letter: string) => terrains[letter.toLowerCase().charCodeAt(0) % terrains.length];
+
+const bodyClass = [
+  "leading-loose text-gray-800",
+  poem.layout === "columns" ? "text-base" : "text-base sm:text-lg",
+  centered ? "text-center" : "",
+  poem.layout === "columns" ? "md:columns-2 md:gap-12 [&>*]:break-inside-avoid [&>*]:mb-8" : "space-y-8",
+  poem.letter ? "italic rounded-2xl border border-amber-100 bg-amber-50/60 p-6 sm:p-10 shadow-sm" : "",
+].join(" ");
+const lineClass = centered ? "block" : "block pl-6 -indent-6";
+---
+
+<div class={bodyClass}>
+  {poem.body.map((block) => {
+    if (Array.isArray(block)) {
+      return (
+        <p>
+          {block.map((line) => <span class={lineClass} set:html={inline(line)} />)}
+        </p>
+      );
+    }
+    if ("note" in block) {
+      return <p class="text-sm leading-relaxed text-gray-500 italic" set:html={inline(block.note)} />;
+    }
+    if ("code" in block) {
+      return (
+        <pre class="not-italic text-left overflow-x-auto rounded-xl bg-gray-900 p-5 text-xs sm:text-sm leading-relaxed text-gray-100"><code>{block.code}</code></pre>
+      );
+    }
+    if ("image" in block) {
+      return (
+        <figure class="not-italic">
+          <img src={block.image} alt={block.alt} loading="lazy" class="w-full rounded-xl shadow-sm" />
+          {block.caption && (
+            <figcaption class="mt-3 text-center text-sm text-gray-500">{block.caption}</figcaption>
+          )}
+        </figure>
+      );
+    }
+    return (
+      <div class="space-y-4">
+        {block.tiles.map((word) => {
+          const letters = word.replace(/[^a-z]/gi, "");
+          const punctuation = word.slice(letters.length);
+          return (
+            <div class="flex flex-wrap items-end gap-1.5">
+              {[...letters].map((letter) => (
+                <span
+                  class="flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-md text-lg sm:text-xl font-bold text-white shadow-sm [text-shadow:0_1px_3px_rgba(0,0,0,0.55)]"
+                  style={`background: ${terrainFor(letter)}`}
+                  aria-hidden="true"
+                >
+                  {letter.toUpperCase()}
+                </span>
+              ))}
+              <span class="ml-2 text-sm text-gray-500">({letters}){punctuation}</span>
+            </div>
+          );
+        })}
+      </div>
+    );
+  })}
+</div>

@@ -76,6 +76,17 @@ export const en: SiteConfig = {
         "A look at the personal projects that balance my engineering work—photography and poetry.",
       badge: "Creative",
     },
+    poetry: {
+      title: "Poetry Portfolio",
+      meta: "Fall 2024 · Advisor: Professor Felsenthal",
+      intro:
+        "Twenty poems from my Fall 2024 portfolio: city nights, four seasons, family, old teachers, and a few that only a programmer would write. Pick one to read.",
+      favorite: "My favorite",
+      read: "Read poem →",
+      back: "← All poems",
+      previous: "← Previous",
+      next: "Next →",
+    },
     common: {
       moreAbout: "More About Me",
       rights: "All rights reserved.",

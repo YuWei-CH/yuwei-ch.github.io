@@ -1,0 +1,77 @@
+---
+import PoemBody from "../../../components/PoemBody.astro";
+import { localeEntries, pageMeta } from "../../../config";
+import { poemExcerpt, poemNumber, poems } from "../../../config/poems";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+export function getStaticPaths() {
+  return poems.map((poem, index) => ({ params: { slug: poem.slug }, props: { index } }));
+}
+
+interface Props {
+  index: number;
+}
+
+const { index } = Astro.props as Props;
+const poem = poems[index];
+const neighbors = [
+  { poem: poems[index - 1], label: "previous" as const },
+  { poem: poems[index + 1], label: "next" as const },
+];
+const meta = pageMeta((config) => ({
+  title: `${poem.title} - ${config.name}`,
+  description: poemExcerpt(poem),
+}));
+const accentColor = localeEntries[0][1].accentColor;
+---
+
+<BaseLayout meta={meta}>
+  <main class="pt-16">
+    <article class={`${poem.layout === "columns" ? "max-w-4xl" : "max-w-2xl"} mx-auto px-6 sm:px-8 py-12 sm:py-16 md:py-20`}>
+      <a href="/hobbies/#poetry" class="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors">
+        {localeEntries.map(([lang, siteConfig]) => (
+          <span class={`lang-block lang-${lang}`}>{siteConfig.ui.poetry.back}</span>
+        ))}
+      </a>
+
+      <header class="mt-10 mb-12">
+        <div class="flex flex-wrap items-center gap-3 text-sm font-mono">
+          <span style={`color: ${accentColor}`}>No. {poemNumber(poem)} / {poems.length}</span>
+          {poem.favorite && (
+            <span class="inline-flex items-center gap-1 rounded-full bg-orange-50 px-3 py-1 text-xs font-semibold text-orange-700">
+              ★
+              {localeEntries.map(([lang, siteConfig]) => (
+                <span class={`lang-block lang-${lang}`}>{siteConfig.ui.poetry.favorite}</span>
+              ))}
+            </span>
+          )}
+        </div>
+        <h1 class="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-gray-900">{poem.title}</h1>
+        {poem.epigraph && <p class="mt-4 text-sm sm:text-base italic text-gray-500">{poem.epigraph}</p>}
+        <div class="w-[75px] h-[5px] mt-6 rounded-full" style={`background-color: ${accentColor}`} />
+      </header>
+
+      <PoemBody poem={poem} />
+
+      <nav class="mt-16 grid grid-cols-2 gap-4 border-t border-gray-200 pt-8">
+        {neighbors.map(({ poem: neighbor, label }) =>
+          neighbor ? (
+            <a
+              href={`/hobbies/poetry/${neighbor.slug}/`}
+              class={`group rounded-xl border border-gray-200 p-4 transition-colors hover:border-gray-400 ${label === "next" ? "col-start-2 text-right" : ""}`}
+            >
+              <span class="text-xs font-medium uppercase tracking-wide text-gray-500">
+                {localeEntries.map(([lang, siteConfig]) => (
+                  <span class={`lang-block lang-${lang}`}>{siteConfig.ui.poetry[label]}</span>
+                ))}
+              </span>
+              <span class="mt-1 block text-sm sm:text-base font-semibold text-gray-900 group-hover:underline">
+                {neighbor.title}
+              </span>
+            </a>
+          ) : null
+        )}
+      </nav>
+    </article>
+  </main>
+</BaseLayout>
