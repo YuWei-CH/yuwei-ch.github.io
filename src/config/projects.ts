@@ -32,10 +32,10 @@ export const projects = [
   },
   {
     id: "travel-planner",
-    name: "AWS-Sponsored Travel Planner",
+    name: "AWS-Sponsored Travel Planner (Feb–May 2025)",
     description:
-      "Led the team and secured AWS technical sponsorship for a serverless travel planner with LLM recommendations and OCR-based ticket parsing. Defined infrastructure with CloudFormation and integrated Lambda, API Gateway, Cognito, RDS, and SQS; ElastiCache caching was estimated to reduce OpenAI API costs by ~30% based on observed cache-hit rates.",
-    skills: ["AWS Lambda", "CloudFormation", "API Gateway", "Cognito", "RDS", "SQS", "OpenAI API"],
+      "Led the team and secured AWS technical sponsorship for a serverless travel planner with LLM recommendations and OCR-based ticket parsing, owning the architecture and backend APIs for user preferences, trip planning, and itinerary management. Built event-driven notifications with SQS queues feeding Lambda consumers that send email via SES, and defined infrastructure with CloudFormation across Lambda, API Gateway, Cognito, and RDS; ElastiCache caching was estimated to reduce OpenAI API costs by ~30% based on observed cache-hit rates.",
+    skills: ["AWS Lambda", "CloudFormation", "API Gateway", "Cognito", "RDS", "SQS", "SES", "OpenAI API"],
     link: "https://github.com/YuWei-CH/Travel-Planner",
   },
   {

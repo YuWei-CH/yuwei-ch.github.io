@@ -29,11 +29,14 @@ export const zh: SiteConfig = {
     "Redis",
     "MongoDB",
     "MySQL",
+    "PostgreSQL",
     "RocketMQ",
     "Docker",
     "Kubernetes",
+    "OpenShift",
     "SLURM",
     "Singularity",
+    "Prometheus",
     "CMake",
     "Git/GitHub",
     "Linux",
@@ -47,13 +50,25 @@ export const zh: SiteConfig = {
   ],
   experience: [
     {
+      id: "omnivision",
+      company: "OmniVision",
+      title: "性能工程实习生",
+      dateRange: "2026 年 8 月 - 2026 年 12 月",
+      bullets: [
+        "围绕延迟与资源约束设计 CPU/GPU 异构工作流：将研究仿真调度至 H200 与 RTX PRO 6000 GPU，生产验证任务则在非高峰时段分配到 CPU 集群。",
+        "使用 MPI、NUMA 感知的进程绑定和 CUDA Streams 并行化基于 PyTorch 的 RCWA，并减少 H2D/D2H 同步，相比各自优化前的实现，CPU 版本加速 8 倍、GPU 版本加速 5 倍。",
+        "缓存 RCWA 中不变的层计算结果，并修复 PyTorch 计算图内存泄漏，内存占用降低约 40%。",
+      ],
+    },
+    {
       id: "waymo",
       company: "Waymo",
       title: "软件工程实习生",
       dateRange: "2026 年 5 月 - 2026 年 8 月",
       bullets: [
-        "围绕 agent handover 预测，构建覆盖数据采样、模型训练、离线评估和推理的机器学习流程。",
-        "将模型推理分数接入 driving-set 候选样本筛选，支持基于日志的评估流程，减少对仿真查询的依赖。",
+        "设计并上线面向候选样本筛选的端到端机器学习系统，将模型分数接入 driving-set 采样器，使筛选流程不再以仿真为前提。",
+        "基于 SQL/Python 构建数据流水线，为 Waymo 共享机器学习基础设施扩展 20 万+ 条任务专属样本，并将该任务接入拥有 20 亿+ 联合训练样本的多任务训练系统。",
+        "针对稀有且非确定性的信号，开发基于 Transformer 的序列分类器及评估流程，AUC-PR 达到 68.3%（随机基线为 32%），下游准确率达到 84.8%。",
       ],
     },
     {
@@ -81,8 +96,9 @@ export const zh: SiteConfig = {
         },
       ],
       bullets: [
+        "借助 Docker、Kubernetes 和 Globus 将 HPC 与推理工作负载迁移到 Red Hat OpenShift，实现长期运行服务的自动化，并使用 Prometheus 监控资源使用。",
+        "将 Amber、AlphaFold2 等 5 个 HPC 与机器学习工作负载封装为可复用的 Singularity 镜像和 Slurm 启动脚本，保证在 ARM CPU 与 NVIDIA GPU 上可复现运行。",
         "在 NVIDIA Grace Hopper ARM CPU 上编译并基准测试 Gaussian 与 Amber，评估ARM CPU能效与ARM 生态对于HPC的兼容性。",
-        "使用 Podman、Singularity、Kubernetes 将物理 HPC 集群迁移计算环境和数据到基于 OpenShift 的本地云。",
       ],
     },
     {
@@ -120,7 +136,7 @@ export const zh: SiteConfig = {
       focus: "参与 RABT: Run-Ahead Block TAGE 研究，论文被 ISCA 2026 CBP-NG 研讨会接收。",
       publicationTitle: "RABT: Run-Ahead Block TAGE",
       publicationLink:
-        "https://dn711300.ca.archive.org/0/items/cbp-ng_proceedings/Gupta_et_al-paper.pdf",
+        "https://archive.org/download/cbp-ng_proceedings/Gupta_et_al-paper.pdf",
     },
     {
       id: "flatiron-periodogram",
@@ -158,6 +174,13 @@ export const zh: SiteConfig = {
   ],
   news: [
     {
+      id: "omnivision-intern",
+      title: "加入 OmniVision 担任性能工程实习生",
+      date: "2026 年 8 月",
+      description:
+        "在 OmniVision（圣克拉拉）开始性能工程实习，在 CPU 集群与 NVIDIA GPU 上优化基于 PyTorch 的 RCWA 仿真。",
+    },
+    {
       id: "waymo-complete",
       title: "完成 Waymo 软件工程实习",
       date: "2026 年 8 月",
@@ -169,7 +192,7 @@ export const zh: SiteConfig = {
       title: "RABT 被 ISCA 2026 CBP-NG 录用",
       date: "2026 年 4 月",
       description:
-        "我们的项目与论文 [*RABT: Run-Ahead Block TAGE*](https://dn711300.ca.archive.org/0/items/cbp-ng_proceedings/Gupta_et_al-paper.pdf) 被 ISCA 2026 的 [CBP-NG 研讨会](https://cbp-ng.bpchamp.com/) 录用。感谢所有贡献者！",
+        "我们的项目与论文 [*RABT: Run-Ahead Block TAGE*](https://archive.org/download/cbp-ng_proceedings/Gupta_et_al-paper.pdf) 被 ISCA 2026 的 [CBP-NG 研讨会](https://cbp-ng.bpchamp.com/) 录用。感谢所有贡献者！",
     },
     {
       id: "hdpat-accepted",
@@ -280,10 +303,10 @@ export const zh: SiteConfig = {
     },
     {
       id: "travel-planner",
-      name: "基于云的旅行规划器（AWS 赞助）",
+      name: "基于云的旅行规划器（AWS 赞助，2025 年 2–5 月）",
       description:
-        "带领团队开发获得 AWS 技术赞助的无服务器旅行规划平台，整合 LLM 行程推荐与票据 OCR。使用 CloudFormation 定义基础设施，串联 Lambda、API Gateway、Cognito、RDS 和 SQS；依据观察到的缓存命中率，估计 ElastiCache 可将 OpenAI API 成本降低约 30%。",
-      skills: ["AWS Lambda", "CloudFormation", "API Gateway", "Cognito", "RDS", "SQS", "OpenAI API"],
+        "带领团队开发获得 AWS 技术赞助的无服务器旅行规划平台，整合 LLM 行程推荐与票据 OCR，负责整体架构及用户偏好、行程规划与行程管理的后端 API。基于 SQS 队列驱动 Lambda 消费者并通过 SES 发送邮件，实现事件驱动的通知；使用 CloudFormation 定义基础设施，串联 Lambda、API Gateway、Cognito 和 RDS；依据观察到的缓存命中率，估计 ElastiCache 可将 OpenAI API 成本降低约 30%。",
+      skills: ["AWS Lambda", "CloudFormation", "API Gateway", "Cognito", "RDS", "SQS", "SES", "OpenAI API"],
       link: "https://github.com/YuWei-CH/Travel-Planner",
     },
     {

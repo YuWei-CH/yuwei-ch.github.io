@@ -10,7 +10,7 @@ export const research = [
     focus: "Contributed to RABT: Run-Ahead Block TAGE, accepted to the CBP-NG workshop at ISCA 2026.",
     publicationTitle: "RABT: Run-Ahead Block TAGE",
     publicationLink:
-      "https://dn711300.ca.archive.org/0/items/cbp-ng_proceedings/Gupta_et_al-paper.pdf",
+      "https://archive.org/download/cbp-ng_proceedings/Gupta_et_al-paper.pdf",
   },
   {
     id: "flatiron-periodogram",

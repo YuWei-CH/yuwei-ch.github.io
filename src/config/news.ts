@@ -1,5 +1,12 @@
 export const news = [
   {
+    id: "omnivision-intern",
+    title: "Joined OmniVision as Performance Engineering Intern",
+    date: "Aug 2026",
+    description:
+      "Started a performance engineering internship at OmniVision in Santa Clara, optimizing PyTorch RCWA simulations across CPU clusters and NVIDIA GPUs.",
+  },
+  {
     id: "waymo-complete",
     title: "Completed Software Engineering Internship at Waymo",
     date: "Aug 2026",
@@ -11,7 +18,7 @@ export const news = [
     title: "RABT accepted to the CBP-NG Workshop at ISCA 2026",
     date: "Apr 2026",
     description:
-      "Our project and paper, [*RABT: Run-Ahead Block TAGE*](https://dn711300.ca.archive.org/0/items/cbp-ng_proceedings/Gupta_et_al-paper.pdf), has been accepted to the [CBP-NG Workshop](https://cbp-ng.bpchamp.com/) at ISCA 2026. Many thanks to all contributors!",
+      "Our project and paper, [*RABT: Run-Ahead Block TAGE*](https://archive.org/download/cbp-ng_proceedings/Gupta_et_al-paper.pdf), has been accepted to the [CBP-NG Workshop](https://cbp-ng.bpchamp.com/) at ISCA 2026. Many thanks to all contributors!",
   },
   {
     id: "hdpat-accepted",

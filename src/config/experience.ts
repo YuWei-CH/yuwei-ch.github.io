@@ -1,12 +1,24 @@
 export const experience = [
   {
+    id: "omnivision",
+    company: "OmniVision",
+    title: "Performance Engineering Intern",
+    dateRange: "Aug 2026 - Dec 2026",
+    bullets: [
+      "Designed a heterogeneous CPU/GPU workflow around latency and resource constraints, routing research simulations to H200 and RTX PRO 6000 GPUs and production verification to CPU clusters during off-peak hours.",
+      "Parallelized PyTorch RCWA with MPI, NUMA-aware placement, and CUDA streams; reduced H2D/D2H synchronization for 8× CPU and 5× GPU speedups over the respective pre-optimization implementations.",
+      "Cached invariant RCWA layer computations and fixed PyTorch computation-graph memory leaks, reducing memory usage by ~40%.",
+    ],
+  },
+  {
     id: "waymo",
     company: "Waymo",
     title: "Software Engineering Intern",
     dateRange: "May 2026 - Aug 2026",
     bullets: [
-      "Built an end-to-end ML workflow for agent-handover prediction, covering data sampling, model training, offline evaluation, and inference.",
-      "Integrated inference scores into driving-set candidate selection to support log-based evaluation without requiring simulation-derived queries.",
+      "Engineered and productionized an end-to-end ML system for candidate selection, integrating model scores into the driving-set sampler and removing simulation as a prerequisite.",
+      "Extended Waymo's shared ML infrastructure with a SQL/Python pipeline for 200K+ task-specific examples, integrating the workload into a multi-task training system with 2B+ joint-training examples.",
+      "Developed a transformer-based sequence classifier and evaluation for rare, non-deterministic signals, achieving 68.3% AUC-PR vs. a 32% random baseline and 84.8% downstream accuracy.",
     ],
   },
   {
@@ -34,8 +46,9 @@ export const experience = [
       },
     ],
     bullets: [
+      "Migrated HPC and inference workloads to Red Hat OpenShift with Docker, Kubernetes, and Globus, automating long-running services and monitoring resource usage with Prometheus.",
+      "Packaged 5 HPC and ML workloads, including Amber and AlphaFold2, into reusable Singularity images and Slurm launch scripts for reproducible execution across ARM CPUs and NVIDIA GPUs.",
       "Benchmarked and compiled Gaussian and Amber on NVIDIA Grace Hopper ARM CPUs, evaluating energy efficiency and compatibility.",
-      "Led migration from a physical HPC cluster to an OpenShift-based on-prem cloud using Podman, Singularity, and Kubernetes.",
     ],
   },
   {
