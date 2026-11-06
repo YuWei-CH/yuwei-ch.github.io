@@ -48,7 +48,8 @@ export const experience = [
     bullets: [
       "Migrated HPC and inference workloads to Red Hat OpenShift with Docker, Kubernetes, and Globus, automating long-running services and monitoring resource usage with Prometheus.",
       "Packaged 5 HPC and ML workloads, including Amber and AlphaFold2, into reusable Singularity images and Slurm launch scripts for reproducible execution across ARM CPUs and NVIDIA GPUs.",
-      "Benchmarked and compiled Gaussian and Amber on NVIDIA Grace Hopper ARM CPUs, evaluating energy efficiency and compatibility.",
+      "Compiled and benchmarked Gaussian and Amber on NVIDIA Grace Hopper, and HPL, Amber24, and Gaussian on AWS Graviton and GCP Axion, evaluating ARM CPUs for energy efficiency, compatibility, and cloud price-performance.",
+      "Translated AlphaFold and DualPhysics from CUDA to HIP with HIPify for AMD GPU support on ROCm, and contributed fixes to HIPify for Math_constant.h issues to improve translation reliability.",
     ],
   },
   {
@@ -61,17 +62,6 @@ export const experience = [
       "Enhanced Reform with sequential processing, compressed file handling, and parallel execution for genomics workloads.",
       "Updated ReformWeb to run Reform on HPC servers via a web UI with Flask, SQLite, Redis, Werkzeug, and Jinja2.",
       "Built CI/CD with GitHub Actions and Python unittest plus a Bash-based verification pipeline with TTL-based log retention.",
-    ],
-  },
-  {
-    id: "nyu-hpc-research-engineer",
-    company: "NYU High-Performance Computing Team",
-    title: "Part-time Research Engineer",
-    dateRange: "Jan 2024 - May 2024",
-    bullets: [
-      "Translated CUDA codebases to HIP with HIPify, enabling AMD GPU support for AlphaFold and DualPhysics on ROCm.",
-      "Contributed fixes to HIPify for Math_constant.h issues to improve CUDA-to-HIP translation reliability.",
-      "Evaluated cloud based ARM CPU suitability on AWS Graviton and GCP Axion by compiling HPL, Amber24, and Gaussian and benchmarking price-performance.",
     ],
   },
 ];

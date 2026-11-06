@@ -98,7 +98,8 @@ export const zh: SiteConfig = {
       bullets: [
         "借助 Docker、Kubernetes 和 Globus 将 HPC 与推理工作负载迁移到 Red Hat OpenShift，实现长期运行服务的自动化，并使用 Prometheus 监控资源使用。",
         "将 Amber、AlphaFold2 等 5 个 HPC 与机器学习工作负载封装为可复用的 Singularity 镜像和 Slurm 启动脚本，保证在 ARM CPU 与 NVIDIA GPU 上可复现运行。",
-        "在 NVIDIA Grace Hopper ARM CPU 上编译并基准测试 Gaussian 与 Amber，评估ARM CPU能效与ARM 生态对于HPC的兼容性。",
+        "在 NVIDIA Grace Hopper 上编译并基准测试 Gaussian 与 Amber，并在 AWS Graviton 与 GCP Axion 上测试 HPL、Amber24 与 Gaussian，评估 ARM CPU 的能效、HPC 生态兼容性及云上性价比。",
+        "用 HIPify 将 AlphaFold 和 DualPhysics 的 CUDA 代码翻译为 HIP，使其支持 AMD GPU 的 ROCm 平台；并为 HIPify 修复 Math_constant.h 相关问题，提高 CUDA 到 HIP 的转换可靠性。",
       ],
     },
     {
@@ -111,17 +112,6 @@ export const zh: SiteConfig = {
         "为 Reform 增强顺序处理、压缩文件处理和并行执行，适配基因组工作负载。",
         "更新 ReformWeb，使 Reform 可通过 Flask、SQLite、Redis、Werkzeug、Jinja2 在 HPC 服务器上运行。",
         "构建 GitHub Actions + Python unittest 的 CI/CD，并用 Bash 验证流水线与 TTL 日志保留。",
-      ],
-    },
-    {
-      id: "nyu-hpc-research-engineer",
-      company: "NYU High-Performance Computing Team",
-      title: "兼职研究工程师",
-      dateRange: "2024 年 1 月 - 2024 年 5 月",
-      bullets: [
-        "用 HIPify 将 CUDA 代码翻译为 HIP，使 AlphaFold 和 DualPhysics 支持 AMD GPU 的 ROCm 平台。",
-        "为 HIPify 修复 Math_constant.h 相关问题，提高 CUDA 到 HIP 的转换可靠性。",
-        "在 AWS Graviton 与 GCP Axion 上编译 HPL、Amber24、Gaussian 并基准测试，评估基于 ARM CPU 云计算的性价比。",
       ],
     },
   ],
